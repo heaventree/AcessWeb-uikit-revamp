@@ -198,7 +198,7 @@ export function WCAGToolbar() {
             <div className="grid gap-4">
               {/* Display WCAG compliance badge */}
               <div className="flex justify-center mb-1">
-                <WCAGBadge level="AA" size="md" showTooltip={true} />
+                <WCAGBadge level="AA" showDetails={true} />
               </div>
               
               {/* Dark mode toggle */}
