@@ -24,21 +24,21 @@ function FAQItem({ question, answer, value }: FAQItemProps) {
     <AccordionItem value={value} className="border-0 mb-4">
       <AccordionTrigger 
         onClick={() => setIsOpen(!isOpen)}
-        className="text-left font-semibold hover:no-underline bg-white rounded-xl py-5 px-6 shadow-sm border border-gray-100 flex justify-between data-[state=open]:rounded-b-none"
+        className="text-left font-semibold hover:no-underline bg-white dark:bg-gray-800 rounded-xl py-5 px-6 shadow-sm border border-gray-100 dark:border-gray-700 flex justify-between data-[state=open]:rounded-b-none dark:text-white"
       >
         <span>{question}</span>
         <div className="shrink-0 ml-4">
           {isOpen ? 
-            <div className="w-6 h-6 rounded-full bg-[#e0f5f1] flex items-center justify-center">
-              <Minus className="h-3 w-3 text-[#0fae96]" />
+            <div className="w-6 h-6 rounded-full bg-[#e0f5f1] dark:bg-[#0fae96]/20 flex items-center justify-center">
+              <Minus className="h-3 w-3 text-[#0fae96] dark:text-[#5eead4]" />
             </div> : 
-            <div className="w-6 h-6 rounded-full bg-[#e0f5f1] flex items-center justify-center">
-              <Plus className="h-3 w-3 text-[#0fae96]" />
+            <div className="w-6 h-6 rounded-full bg-[#e0f5f1] dark:bg-[#0fae96]/20 flex items-center justify-center">
+              <Plus className="h-3 w-3 text-[#0fae96] dark:text-[#5eead4]" />
             </div>
           }
         </div>
       </AccordionTrigger>
-      <AccordionContent className="text-gray-600 p-6 pt-4 border border-t-0 border-gray-100 bg-white rounded-b-xl">
+      <AccordionContent className="text-gray-600 dark:text-gray-300 p-6 pt-4 border border-t-0 border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-b-xl">
         {answer}
       </AccordionContent>
     </AccordionItem>
@@ -89,11 +89,11 @@ export default function FAQSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <Badge variant="outline" className="bg-[#e0f5f1] text-[#0fae96] border-0 rounded-full px-4 py-1 mb-6">
+          <Badge variant="outline" className="bg-[#e0f5f1] dark:bg-[#0fae96]/20 text-[#0fae96] dark:text-[#5eead4] border-0 rounded-full px-4 py-1 mb-6">
             We're here to help
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Frequently Asked Questions</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 dark:text-white">Frequently Asked Questions</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Find answers to common questions about AccessWebPro and web accessibility compliance
           </p>
         </motion.div>
@@ -116,16 +116,16 @@ export default function FAQSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={ctaIsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
-          className="bg-[#f4f9ff] p-10 rounded-2xl max-w-4xl mx-auto border border-[#e5f1fb]"
+          className="bg-[#f4f9ff] dark:bg-gray-800 p-10 rounded-2xl max-w-4xl mx-auto border border-[#e5f1fb] dark:border-gray-700"
         >
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
-              <h3 className="text-2xl font-bold mb-3">Still have questions?</h3>
-              <p className="text-gray-600">Contact our support team for personalized assistance with your accessibility needs.</p>
+              <h3 className="text-2xl font-bold mb-3 dark:text-white">Still have questions?</h3>
+              <p className="text-gray-600 dark:text-gray-300">Contact our support team for personalized assistance with your accessibility needs.</p>
             </div>
             <div>
               <Button 
-                className="bg-primary hover:bg-primary/90 rounded-full py-6 px-8 text-white"
+                className="bg-primary hover:bg-primary/90 dark:bg-primary/90 dark:hover:bg-primary/80 rounded-full py-6 px-8 text-white"
               >
                 Contact Support <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
