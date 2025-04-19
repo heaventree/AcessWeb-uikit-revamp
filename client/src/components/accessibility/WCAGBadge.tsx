@@ -1,102 +1,97 @@
-import React from 'react';
-import { Shield, ShieldCheck, Info } from 'lucide-react';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Badge } from '@/components/ui/badge';
+import { useState } from 'react';
+import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { InfoIcon, CheckCircle, AlertCircle, XCircle } from "lucide-react";
+
+type ComplianceLevel = 'A' | 'AA' | 'AAA';
+type ComplianceStatus = 'pass' | 'partial' | 'fail' | 'unknown';
 
 interface WCAGBadgeProps {
-  level: 'A' | 'AA' | 'AAA';
-  showTooltip?: boolean;
-  size?: 'sm' | 'md' | 'lg';
+  level: ComplianceLevel;
+  status?: ComplianceStatus;
+  showDetails?: boolean;
+  criteriaId?: string;
+  description?: string;
 }
 
-/**
- * A component that displays a WCAG compliance badge
- * - A: Minimum level of compliance
- * - AA: Widely accepted standard for public websites
- * - AAA: Highest level of compliance
- */
-export function WCAGBadge({ level, showTooltip = true, size = 'md' }: WCAGBadgeProps) {
-  // Determine badge styles based on compliance level
-  const getBadgeStyles = () => {
-    switch (level) {
-      case 'A':
-        return 'bg-blue-100 text-blue-700 border-blue-400 dark:bg-blue-900 dark:text-blue-200 dark:border-blue-700';
-      case 'AA':
-        return 'bg-green-100 text-green-700 border-green-400 dark:bg-green-900 dark:text-green-200 dark:border-green-700';
-      case 'AAA':
-        return 'bg-purple-100 text-purple-700 border-purple-400 dark:bg-purple-900 dark:text-purple-200 dark:border-purple-700';
-      default:
-        return 'bg-gray-100 text-gray-700 border-gray-400 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600';
-    }
+export function WCAGBadge({ 
+  level = 'AA', 
+  status = 'pass', 
+  showDetails = false,
+  criteriaId,
+  description
+}: WCAGBadgeProps) {
+  const [isExpanded, setIsExpanded] = useState(showDetails);
+
+  // Define color variations based on level and status
+  const getBadgeVariant = () => {
+    if (status === 'pass') return 'success';
+    if (status === 'partial') return 'warning';
+    if (status === 'fail') return 'destructive';
+    return 'secondary';
   };
 
-  // Get tooltip text based on level
-  const getTooltipText = () => {
-    switch (level) {
-      case 'A':
-        return 'WCAG 2.1 Level A Compliant - Meets basic accessibility requirements';
-      case 'AA':
-        return 'WCAG 2.1 Level AA Compliant - Meets standard accessibility requirements for public websites';
-      case 'AAA':
-        return 'WCAG 2.1 Level AAA Compliant - Meets the highest level of accessibility requirements';
+  // Get the appropriate icon based on status
+  const getStatusIcon = () => {
+    switch (status) {
+      case 'pass':
+        return <CheckCircle className="h-4 w-4 mr-1" />;
+      case 'partial':
+        return <AlertCircle className="h-4 w-4 mr-1" />;
+      case 'fail':
+        return <XCircle className="h-4 w-4 mr-1" />;
       default:
-        return 'WCAG Compliance';
+        return <InfoIcon className="h-4 w-4 mr-1" />;
     }
   };
-
-  // Get icon based on level
-  const getIcon = () => {
-    switch (level) {
-      case 'A':
-        return <Shield className="h-3.5 w-3.5 mr-1" />;
-      case 'AA':
-        return <ShieldCheck className="h-3.5 w-3.5 mr-1" />;
-      case 'AAA':
-        return <ShieldCheck className="h-3.5 w-3.5 mr-1" />;
-      default:
-        return <Info className="h-3.5 w-3.5 mr-1" />;
-    }
-  };
-
-  // Get class for size
-  const getSizeClass = () => {
-    switch (size) {
-      case 'sm':
-        return 'text-xs py-0.5 px-2';
-      case 'lg':
-        return 'text-sm py-1 px-3';
-      case 'md':
-      default:
-        return 'text-xs py-0.5 px-2.5';
-    }
-  };
-
-  const badge = (
-    <Badge
-      variant="outline"
-      className={`${getBadgeStyles()} ${getSizeClass()} inline-flex items-center font-medium rounded border shadow-sm`}
-    >
-      {getIcon()}
-      WCAG {level}
-    </Badge>
-  );
-
-  if (!showTooltip) {
-    return badge;
-  }
 
   return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger asChild>
-          {badge}
-        </TooltipTrigger>
-        <TooltipContent>
-          <p className="text-sm">{getTooltipText()}</p>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+    <>
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Badge 
+              variant={getBadgeVariant() as any} 
+              className="cursor-pointer"
+              onClick={() => setIsExpanded(!isExpanded)}
+            >
+              {getStatusIcon()}
+              WCAG {level} {criteriaId && `(${criteriaId})`}
+            </Badge>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>{status === 'pass' ? 'Compliant with' : status === 'partial' ? 'Partially compliant with' : 'Not compliant with'} WCAG {level}</p>
+            {description && <p className="text-xs mt-1">{description}</p>}
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+
+      {isExpanded && description && (
+        <Card className="mt-2 w-full max-w-md">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm">WCAG {level} {criteriaId && `- ${criteriaId}`}</CardTitle>
+            <CardDescription>{description}</CardDescription>
+          </CardHeader>
+          <CardFooter className="pt-2 flex justify-end gap-2">
+            <Button 
+              variant="outline" 
+              size="sm"
+              onClick={() => setIsExpanded(false)}
+            >
+              Close
+            </Button>
+            <Button 
+              variant="default" 
+              size="sm"
+              className="bg-gradient-to-r from-[#0066FF] to-[#0fae96] hover:from-[#0052cc] hover:to-[#0c9a86] border-none"
+            >
+              View Criteria
+            </Button>
+          </CardFooter>
+        </Card>
+      )}
+    </>
   );
 }
-
-export default WCAGBadge;

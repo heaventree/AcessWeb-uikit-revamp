@@ -148,8 +148,12 @@ export default function Navbar() {
             size="icon"
             className="md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
+            aria-label="Toggle navigation menu"
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMenuOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
+            <span className="sr-only">{isMenuOpen ? 'Close menu' : 'Open menu'}</span>
           </Button>
         </div>
       </div>
@@ -158,11 +162,14 @@ export default function Navbar() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
+            id="mobile-menu"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="md:hidden bg-background border-t border-border px-4 py-4 overflow-hidden"
+            role="navigation"
+            aria-label="Mobile navigation"
           >
             {navItems.map((item, index) => (
               <a 
