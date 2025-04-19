@@ -18,13 +18,13 @@ interface DropdownProps {
 
 const NavDropdownItem: React.FC<DropdownItemProps> = ({ icon: Icon, label, description, href }) => {
   return (
-    <div className="flex flex-col hover:bg-primary/5 dark:hover:bg-gray-800 cursor-pointer p-3 rounded-md transition-colors" 
+    <div className="flex flex-col hover:bg-primary/5 dark:hover:bg-slate-800 cursor-pointer p-3 rounded-md transition-colors" 
          onClick={() => window.location.href = href}>
       <div className="flex items-center">
         <Icon className="h-5 w-5 text-[#0fae96] dark:text-[#5eead4] mr-2 flex-shrink-0" />
-        <span className="font-medium text-base dark:text-[#5eead4]">{label}</span>
+        <span className="font-medium text-base dark:text-white">{label}</span>
       </div>
-      <div className="text-base text-muted-foreground dark:text-gray-400 whitespace-nowrap text-ellipsis overflow-hidden">
+      <div className="text-base text-muted-foreground dark:text-[#5eead4] whitespace-nowrap text-ellipsis overflow-hidden">
         {description}
       </div>
     </div>
@@ -70,7 +70,7 @@ export const NavDropdown: React.FC<DropdownProps> = ({ label, items }) => {
             transition={{ duration: 0.15 }}
             className="absolute left-0 mt-2 z-50"
           >
-            <div className="bg-white dark:bg-gray-950 rounded-lg shadow-lg dark:shadow-black/30 border border-border dark:border-gray-800 w-80 p-2 space-y-1">
+            <div className="bg-white dark:bg-slate-900 rounded-lg shadow-lg border border-border dark:border-slate-800 w-80 p-2 space-y-1">
               {items.map((item, index) => (
                 <NavDropdownItem key={index} {...item} />
               ))}

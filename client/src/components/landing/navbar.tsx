@@ -235,10 +235,13 @@ export default function Navbar() {
               <h3 className="font-medium text-base mb-2 dark:text-[#5eead4]">Tools</h3>
               {toolsDropdownItems.map((item, index) => (
                 <Link key={index} href={item.href}>
-                  <a className="block py-2 pl-3 text-muted-foreground hover:text-foreground dark:text-gray-400" onClick={() => setIsMenuOpen(false)}>
+                  <a className="block py-2 pl-3 text-muted-foreground hover:text-foreground" onClick={() => setIsMenuOpen(false)}>
                     <div className="flex items-center">
                       <item.icon className="h-4 w-4 mr-2 text-[#0fae96] dark:text-[#5eead4]" />
-                      <span className="dark:text-[#5eead4]">{item.label}</span>
+                      <span className="dark:text-white">{item.label}</span>
+                    </div>
+                    <div className="pl-6 text-sm text-muted-foreground dark:text-[#5eead4]">
+                      {item.description}
                     </div>
                   </a>
                 </Link>
@@ -250,10 +253,13 @@ export default function Navbar() {
               <h3 className="font-medium text-base mb-2 dark:text-[#5eead4]">Resources</h3>
               {resourcesDropdownItems.map((item, index) => (
                 <Link key={index} href={item.href}>
-                  <a className="block py-2 pl-3 text-muted-foreground hover:text-foreground dark:text-gray-400" onClick={() => setIsMenuOpen(false)}>
+                  <a className="block py-2 pl-3 text-muted-foreground hover:text-foreground" onClick={() => setIsMenuOpen(false)}>
                     <div className="flex items-center">
                       <item.icon className="h-4 w-4 mr-2 text-[#0fae96] dark:text-[#5eead4]" />
-                      <span className="dark:text-[#5eead4]">{item.label}</span>
+                      <span className="dark:text-white">{item.label}</span>
+                    </div>
+                    <div className="pl-6 text-sm text-muted-foreground dark:text-[#5eead4]">
+                      {item.description}
                     </div>
                   </a>
                 </Link>
