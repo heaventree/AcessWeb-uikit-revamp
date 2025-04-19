@@ -14,10 +14,10 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({ icon: Icon, label, d
   return (
     <div className="flex flex-col hover:bg-primary/5 cursor-pointer p-3 rounded-md transition-colors">
       <div className="flex items-center">
-        <Icon className="h-5 w-5 text-primary mr-2" />
+        <Icon className="h-5 w-5 text-primary mr-2 flex-shrink-0" />
         <span className="font-medium text-base">{label}</span>
       </div>
-      <div className="text-base text-muted-foreground">
+      <div className="text-base text-muted-foreground whitespace-nowrap text-ellipsis overflow-hidden">
         {description}
       </div>
     </div>
@@ -26,7 +26,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({ icon: Icon, label, d
 
 export const ToolsDropdown: React.FC = () => {
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-border w-64 p-2 space-y-1">
+    <div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-border w-80 p-2 space-y-1">
       <h3 className="font-medium text-base px-3 py-2 border-b border-border mb-1">Tools</h3>
       
       <DropdownItem 
