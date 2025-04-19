@@ -2,7 +2,7 @@ import React, { PropsWithChildren, useState } from 'react';
 import { Menu, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { ThemeToggle } from '@/components/ui/theme-toggle';
+import { ThemeToggle } from '@/components/ui/theme-toggle-fixed';
 import WCAGToolbar from '@/components/accessibility/WCAGToolbar';
 import { Link } from 'wouter';
 

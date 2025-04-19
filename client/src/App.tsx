@@ -3,7 +3,8 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { ThemeProvider } from "@/components/ui/theme-provider";
+// Don't use the broken theme provider
+// import { ThemeProvider } from "@/components/ui/theme-provider";
 import AppShell from "@/components/shell/AppShell";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
@@ -70,12 +71,11 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider defaultTheme="system" storageKey="accessweb-theme">
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
-      </ThemeProvider>
+      {/* We're using a simpler theme toggle approach to fix dark mode issues */}
+      <TooltipProvider>
+        <Toaster />
+        <Router />
+      </TooltipProvider>
     </QueryClientProvider>
   );
 }
