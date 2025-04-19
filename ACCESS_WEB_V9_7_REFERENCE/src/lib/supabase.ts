@@ -1,0 +1,1 @@
+// This file is intentionally empty - using local storage instead

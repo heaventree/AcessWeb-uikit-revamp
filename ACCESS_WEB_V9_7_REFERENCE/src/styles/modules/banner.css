@@ -1,0 +1,47 @@
+.banner-section {
+  @apply relative overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50;
+  min-height: 100vh;
+  padding: 120px 0;
+}
+
+.banner-content {
+  @apply relative z-10 max-w-4xl mx-auto text-center;
+}
+
+.banner-title {
+  @apply text-4xl md:text-6xl font-bold text-gray-900 mb-6;
+}
+
+.banner-subtitle {
+  @apply text-lg md:text-xl text-gray-600 mb-8;
+}
+
+.banner-cta {
+  @apply flex flex-col sm:flex-row items-center justify-center gap-4;
+}
+
+.banner-image {
+  @apply relative mt-12 md:mt-0;
+}
+
+.banner-shape {
+  @apply absolute;
+  animation: float 6s ease-in-out infinite;
+}
+
+.banner-shape-1 {
+  @apply top-0 right-0;
+}
+
+.banner-shape-2 {
+  @apply bottom-0 left-0;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}

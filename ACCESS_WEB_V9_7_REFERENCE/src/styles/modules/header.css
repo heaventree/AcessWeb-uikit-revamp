@@ -1,0 +1,117 @@
+.main-header {
+  @apply fixed w-full top-0 left-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md transition-all duration-300;
+}
+
+.header-scrolled {
+  @apply shadow-md;
+}
+
+.header-container {
+  @apply flex items-center justify-between py-4;
+}
+
+.logo-box {
+  @apply flex items-center;
+}
+
+.nav-menu {
+  @apply hidden md:flex items-center space-x-8;
+}
+
+.nav-link {
+  @apply text-gray-600 hover:text-gray-900 font-medium transition-colors;
+}
+
+.nav-cta {
+  @apply ml-8;
+}
+
+.mobile-menu {
+  @apply md:hidden;
+}
+
+.mobile-menu-button {
+  @apply p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 transition-colors;
+}
+
+.mobile-menu-content {
+  @apply fixed inset-x-0 top-16 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 ease-in-out;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+  transform-origin: top;
+}
+
+.mobile-menu-content.entering {
+  animation: slideDown 0.2s ease-out forwards;
+}
+
+.mobile-menu-content.exiting {
+  animation: slideUp 0.2s ease-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scaleY(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px) scaleY(0.95);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    @apply hidden;
+  }
+  
+  .mobile-menu {
+    @apply block;
+  }
+}
+
+/* Dropdown Menus */
+.dropdown-menu {
+  @apply absolute top-full left-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-lg shadow-lg py-2 transition-all duration-200 ease-in-out transform origin-top-left;
+}
+
+.dropdown-menu.entering {
+  animation: dropdownEnter 0.2s ease-out forwards;
+}
+
+.dropdown-menu.exiting {
+  animation: dropdownExit 0.2s ease-out forwards;
+}
+
+@keyframes dropdownEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dropdownExit {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+}

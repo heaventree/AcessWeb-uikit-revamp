@@ -1,0 +1,352 @@
+/* WCAG Toolbar Styles */
+:root {
+  --wcag-font-scale: 100%;
+  --wcag-letter-spacing: 0px;
+  --wcag-line-height: normal;
+}
+
+/* Apply font size scaling to all text elements */
+body {
+  font-size: var(--wcag-font-scale);
+}
+
+body * {
+  letter-spacing: var(--wcag-letter-spacing) !important;
+  line-height: var(--wcag-line-height) !important;
+}
+
+/* Contrast Modes */
+.wcag-contrast-normal {
+  /* Default theme colors, no changes needed */
+}
+
+.wcag-contrast-high {
+  background-color: white !important;
+  color: black !important;
+}
+
+.wcag-contrast-high * {
+  background-color: white !important;
+  color: black !important;
+  border-color: black !important;
+}
+
+.wcag-contrast-high a {
+  color: blue !important;
+  text-decoration: underline !important;
+}
+
+.wcag-contrast-high button,
+.wcag-contrast-high .btn,
+.wcag-contrast-high [role="button"] {
+  background-color: black !important;
+  color: white !important;
+  border: 2px solid black !important;
+}
+
+.wcag-contrast-inverted {
+  background-color: black !important;
+  color: white !important;
+}
+
+.wcag-contrast-inverted * {
+  background-color: black !important;
+  color: white !important;
+  border-color: white !important;
+}
+
+.wcag-contrast-inverted a {
+  color: yellow !important;
+  text-decoration: underline !important;
+}
+
+.wcag-contrast-inverted button,
+.wcag-contrast-inverted .btn,
+.wcag-contrast-inverted [role="button"] {
+  background-color: white !important;
+  color: black !important;
+  border: 2px solid white !important;
+}
+
+/* Grayscale Mode */
+.wcag-grayscale {
+  filter: grayscale(100%) !important;
+}
+
+/* Link Highlighting */
+.wcag-highlight-links a {
+  background-color: #FFFF00 !important;
+  color: #000000 !important;
+  text-decoration: underline !important;
+  padding: 2px 4px !important;
+  border-radius: 2px !important;
+}
+
+/* Heading Highlighting */
+.wcag-highlight-headings h1,
+.wcag-highlight-headings h2,
+.wcag-highlight-headings h3,
+.wcag-highlight-headings h4,
+.wcag-highlight-headings h5,
+.wcag-highlight-headings h6 {
+  background-color: #ADD8E6 !important;
+  color: #000000 !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+  border-left: 4px solid #0000FF !important;
+}
+
+/* Alt Text Display */
+.wcag-show-alt img {
+  position: relative;
+}
+
+.wcag-show-alt img::after {
+  content: attr(alt);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Toolbar Layout */
+.wcag-toolbar {
+  position: fixed;
+  z-index: 9999;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  width: 320px;
+  max-height: 85vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.wcag-toolbar.top-left {
+  top: 20px;
+  left: 20px;
+}
+
+.wcag-toolbar.top-right {
+  top: 20px;
+  right: 20px;
+}
+
+.wcag-toolbar.bottom-left {
+  bottom: 20px;
+  left: 20px;
+}
+
+.wcag-toolbar.bottom-right {
+  bottom: 20px;
+  right: 20px;
+}
+
+.wcag-toolbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+}
+
+.wcag-toolbar-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.wcag-toolbar-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #64748b;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wcag-toolbar-close:hover {
+  color: #1e293b;
+  background-color: #e2e8f0;
+}
+
+.wcag-toolbar-content {
+  padding: 16px;
+}
+
+.wcag-toolbar-section {
+  margin-bottom: 24px;
+}
+
+.wcag-toolbar-section h3 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.wcag-toolbar-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.wcag-toolbar-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.wcag-toolbar-value {
+  background-color: #f1f5f9;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  min-width: 60px;
+  text-align: center;
+}
+
+.wcag-toolbar-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.wcag-toolbar-button-sm {
+  padding: 4px 8px;
+}
+
+.wcag-toolbar-button:hover:not(:disabled) {
+  background-color: #e2e8f0;
+}
+
+.wcag-toolbar-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.wcag-toolbar-button.active {
+  background-color: #0ea5e9;
+  color: white;
+  border-color: #0284c7;
+}
+
+.wcag-toolbar-button span {
+  flex: 1;
+}
+
+.wcag-toolbar-subsection {
+  margin-bottom: 12px;
+}
+
+.wcag-toolbar-label {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.wcag-toolbar-footer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.wcag-toolbar-reset {
+  width: 100%;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  justify-content: center;
+}
+
+.wcag-toolbar-reset:hover {
+  background-color: #e2e8f0;
+}
+
+/* Toggle Button */
+.wcag-toolbar-toggle-button {
+  position: fixed;
+  z-index: 9998;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.wcag-toolbar-toggle-button:hover {
+  background-color: #1d4ed8;
+}
+
+.wcag-toolbar-toggle-button.top-left {
+  top: 20px;
+  left: 20px;
+}
+
+.wcag-toolbar-toggle-button.top-right {
+  top: 20px;
+  right: 20px;
+}
+
+.wcag-toolbar-toggle-button.bottom-left {
+  bottom: 20px;
+  left: 20px;
+}
+
+.wcag-toolbar-toggle-button.bottom-right {
+  bottom: 20px;
+  right: 20px;
+}
+
+.wcag-toolbar-toggle-button-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .wcag-toolbar {
+    width: 90%;
+    max-width: 320px;
+  }
+  
+  .wcag-toolbar-toggle-button {
+    padding: 8px 16px;
+  }
+  
+  .wcag-toolbar-toggle-button-text {
+    display: none;
+  }
+  
+  .wcag-toolbar-buttons-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "id": "phase-two",
+  "version": "1.0.0",
+  "description": "Database integration and data persistence layer",
+  "author": "AccessWeb Team",
+  "tags": ["database", "supabase", "persistence"],
+  "startedAt": "2024-03-20T00:00:00Z",
+  "tables": [
+    {
+      "name": "users",
+      "description": "User accounts and profiles",
+      "features": [
+        "Authentication integration",
+        "Role-based access control",
+        "Subscription management"
+      ]
+    },
+    {
+      "name": "scans",
+      "description": "Accessibility scan records",
+      "features": [
+        "Scan history tracking",
+        "Results storage",
+        "WCAG compliance mapping"
+      ]
+    },
+    {
+      "name": "scan_results",
+      "description": "Detailed scan findings",
+      "features": [
+        "Issue tracking",
+        "WCAG criteria mapping",
+        "Node-level details"
+      ]
+    },
+    {
+      "name": "subscriptions",
+      "description": "User subscription management",
+      "features": [
+        "Plan tracking",
+        "Billing periods",
+        "Status management"
+      ]
+    },
+    {
+      "name": "payment_history",
+      "description": "Payment records",
+      "features": [
+        "Transaction tracking",
+        "Payment method storage",
+        "Subscription linking"
+      ]
+    },
+    {
+      "name": "articles",
+      "description": "Blog and documentation content",
+      "features": [
+        "Content management",
+        "Category organization",
+        "Author attribution"
+      ]
+    }
+  ],
+  "security": {
+    "rowLevelSecurity": true,
+    "policies": [
+      "User data isolation",
+      "Public content access",
+      "Admin privileges",
+      "Author permissions"
+    ]
+  },
+  "integrations": [
+    "Supabase Auth",
+    "Stripe Billing",
+    "OpenAI API"
+  ]
+}

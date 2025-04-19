@@ -1,0 +1,311 @@
+/**
+ * Section Identifiers CSS - WCAG Accessibility Audit Tool
+ * 
+ * This stylesheet provides isolated styles for section identifiers.
+ * It uses specific class selectors and is conditionally activated.
+ * 
+ * Features:
+ * - High visibility colors for easy spotting
+ * - Enhanced tooltips with detailed component information
+ * - Non-intrusive implementation
+ * - Persisted identifiers across page loads
+ * - Type-specific colors for better categorization
+ * - Structured, rich tooltip display with improved readability
+ * - Focused section highlighting
+ * - Smart positioning to avoid viewport edges
+ */
+
+/* Base styles for section identifiers - hidden by default */
+.section-identifier {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 20, 147, 0.95); /* Hot/Deep Pink - extremely distinct from most themes */
+  color: white;
+  font-size: 14px; /* Larger font size for better visibility */
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  z-index: 9999;
+  pointer-events: all; /* Allow interactions to see tooltips on mobile */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+  transform: translate(-4px, -4px);
+  user-select: none;
+  border: 2px solid white; /* Thicker white border for better visibility */
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.9); /* Stronger text shadow for better readability */
+  min-width: 20px; /* Ensure enough width for numbers */
+  text-align: center;
+  cursor: help; /* Show help cursor to indicate tooltip */
+}
+
+/* Only display identifiers when enabled */
+.section-identifiers-enabled .section-identifier {
+  display: block;
+}
+
+/* Styling for different section types - bright, distinct colors */
+.section-identifier[data-section-type="main"] {
+  background-color: rgba(220, 38, 38, 0.95); /* Red for main sections */
+}
+
+.section-identifier[data-section-type="section"] {
+  background-color: rgba(37, 99, 235, 0.95); /* Blue for regular sections */
+}
+
+.section-identifier[data-section-type="sub-section"] {
+  background-color: rgba(79, 70, 229, 0.95); /* Indigo for sub-sections */
+}
+
+.section-identifier[data-section-type="article"] {
+  background-color: rgba(16, 185, 129, 0.95); /* Green for articles */
+}
+
+.section-identifier[data-section-type="card"] {
+  background-color: rgba(139, 92, 246, 0.95); /* Purple for cards */
+}
+
+.section-identifier[data-section-type="form"] {
+  background-color: rgba(245, 158, 11, 0.95); /* Orange for forms */
+}
+
+.section-identifier[data-section-type="generator"] {
+  background-color: rgba(6, 182, 212, 0.95); /* Cyan for generators */
+}
+
+.section-identifier[data-section-type="palette-output"], 
+.section-identifier[data-section-type="results"] {
+  background-color: rgba(5, 150, 105, 0.95); /* Emerald for palette outputs/results */
+}
+
+.section-identifier[data-section-type="container"],
+.section-identifier[data-section-type="wrapper"] {
+  background-color: rgba(217, 70, 239, 0.95); /* Fuchsia for containers */
+}
+
+.section-identifier[data-section-type="controls"] {
+  background-color: rgba(245, 158, 11, 0.95); /* Amber for control sections */
+}
+
+.section-identifier[data-section-type="grid"] {
+  background-color: rgba(234, 88, 12, 0.95); /* Orange for grid layouts */
+}
+
+.section-identifier[data-section-type="wcag"] {
+  background-color: rgba(190, 24, 93, 0.95); /* Pink for WCAG specific sections */
+}
+
+.section-identifier[data-section-type="react-component"] {
+  background-color: rgba(124, 58, 237, 0.95); /* Violet for React components */
+}
+
+.section-identifier[data-section-type="component"] {
+  background-color: rgba(220, 38, 38, 0.95); /* Red for generic components */
+}
+
+/* Tooltip with info about the section */
+.section-identifier::after {
+  content: attr(data-info);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.95); /* Nearly black for better contrast */
+  color: white;
+  font-size: 12px; /* Slightly larger font for better readability */
+  font-weight: normal;
+  padding: 10px 12px; /* More padding for easier reading */
+  border-radius: 4px;
+  white-space: pre-line; /* Support multiline tooltips */
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  max-width: 400px; /* Wider tooltip for more content */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+  z-index: 10001; /* Higher than the badge itself */
+  line-height: 1.6; /* Better readability for multi-line content */
+  text-align: left;
+  margin-top: 5px; /* Spacing from the badge */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* More visible subtle border */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Make tooltip more visible on hover */
+.section-identifier:hover::after {
+  opacity: 1;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+}
+
+/* Make sure tooltip stays visible during interaction */
+.section-identifier:focus::after,
+.section-identifier:active::after {
+  opacity: 1;
+}
+
+/* Right-aligned tooltip for elements near the left edge */
+.section-identifier[style*="left: 0"]::after,
+.section-identifier[style*="left: 1"]::after,
+.section-identifier[style*="left: 2"]::after,
+.section-identifier[style*="left: 3"]::after,
+.section-identifier[style*="left: 4"]::after,
+.section-identifier[style*="left: 5"]::after,
+.section-identifier[style*="left: 6"]::after,
+.section-identifier[style*="left: 7"]::after,
+.section-identifier[style*="left: 8"]::after,
+.section-identifier[style*="left: 9"]::after {
+  left: auto;
+  right: 0;
+}
+
+/* Toggle control styling - moved to top right */
+.section-identifiers-toggle {
+  position: fixed;
+  top: 65px; /* Moved lower to prevent overlapping with menu */
+  right: 15px;
+  background-color: rgba(255, 20, 147, 0.9); /* Match the marker color */
+  color: white;
+  border: 2px solid white;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px; /* Larger for better visibility */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  transition: all 0.2s ease;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+}
+
+.section-identifiers-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
+}
+
+.section-identifiers-toggle input {
+  margin: 0;
+  width: 16px;
+  height: 16px;
+}
+
+/* Help text that appears on hover */
+.section-identifiers-toggle::after {
+  content: "Toggle section identifiers for debugging";
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  margin-top: 5px;
+  font-weight: normal;
+}
+
+.section-identifiers-toggle:hover::after {
+  opacity: 1;
+}
+
+/**
+ * Enhanced Tooltip Styling
+ * This replaces the CSS ::after pseudo-element tooltips with 
+ * richer, interactive and better positioned tooltips
+ */
+
+/* Hide the default tooltips when using enhanced tooltips */
+.section-identifiers-enabled .section-identifier::after {
+  display: none;
+}
+
+/* Custom enhanced tooltip */
+.section-identifier-tooltip {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.95);
+  color: white;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 10002; /* Higher than identifiers */
+  max-width: 450px;
+  min-width: 320px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  pointer-events: none; /* Allow clicking through */
+  backdrop-filter: blur(8px); /* Modern glass effect */
+  transform: translateY(5px);
+  overflow: hidden;
+}
+
+/* Header of the tooltip */
+.tooltip-header {
+  background-color: rgba(255, 20, 147, 0.9); /* Match the marker color */
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-weight: bold;
+}
+
+/* Type badge in the header */
+.tooltip-type {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 3px 8px;
+  border-radius: 99px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Content area of the tooltip */
+.tooltip-content {
+  padding: 12px;
+  font-size: 13px;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Section within tooltip */
+.tooltip-section {
+  margin-bottom: 6px;
+}
+
+/* Path display */
+.tooltip-path {
+  font-family: monospace;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 3px 6px;
+  border-radius: 3px;
+  font-size: 12px;
+  word-break: break-all;
+  display: block;
+  margin-top: 4px;
+}
+
+/* Style for interaction section */
+.tooltip-section.interaction {
+  border-left: 2px solid rgba(255, 20, 147, 0.5);
+  padding-left: 8px;
+}
+
+/* Style for content section */
+.tooltip-section.content {
+  border-left: 2px solid rgba(5, 150, 105, 0.7);
+  padding-left: 8px;
+}
+
+/* Special hover state for section identifiers with enhanced tooltips */
+.section-identifier:hover {
+  transform: scale(1.1) translate(-4px, -4px);
+  box-shadow: 0 0 0 3px white; /* Thicker white outline for focused identifiers */
+  z-index: 10001; /* Bring to front when hovered */
+}

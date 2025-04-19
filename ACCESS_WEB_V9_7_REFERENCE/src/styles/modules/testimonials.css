@@ -1,0 +1,47 @@
+.testimonials-section {
+  @apply py-16 md:py-24 bg-white;
+}
+
+.testimonials-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.testimonials-header {
+  @apply text-center mb-12;
+}
+
+.testimonials-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-8;
+}
+
+.testimonial-card {
+  @apply bg-white rounded-lg shadow-lg p-6;
+}
+
+.testimonial-content {
+  @apply text-gray-600 mb-6;
+}
+
+.testimonial-author {
+  @apply flex items-center;
+}
+
+.testimonial-avatar {
+  @apply w-12 h-12 rounded-full mr-4;
+}
+
+.testimonial-info {
+  @apply flex flex-col;
+}
+
+.testimonial-name {
+  @apply text-lg font-bold text-gray-900;
+}
+
+.testimonial-title {
+  @apply text-gray-500;
+}
+
+.testimonial-company {
+  @apply text-gray-500;
+}

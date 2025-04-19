@@ -1,0 +1,1 @@
+export { WCAGToolbar } from './WCAGToolbar';

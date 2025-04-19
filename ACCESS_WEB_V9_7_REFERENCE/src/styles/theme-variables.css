@@ -1,0 +1,173 @@
+/**
+ * Theme Variables - Noble UI-inspired Design System
+ *
+ * This file contains all the CSS variables for the Noble UI theme
+ * designed to be used with Tailwind CSS.
+ *
+ * Color scheme follows the two-scale approach:
+ * 1. Primary colors: for branding, main buttons, focus states
+ * 2. Secondary colors: for accents, secondary buttons, additional states
+ * 3. Neutral colors: for text, backgrounds, borders
+ * 4. Semantic colors: success, warning, error, info
+ *
+ * Designed to work with dark mode out of the box
+ */
+
+:root {
+  /* ====== Primary Colors - Blues ====== */
+  --color-primary-50: 240, 249, 255;  /* #f0f9ff */
+  --color-primary-100: 224, 242, 254; /* #e0f2fe */
+  --color-primary-200: 186, 230, 253; /* #bae6fd */
+  --color-primary-300: 125, 211, 252; /* #7dd3fc */
+  --color-primary-400: 56, 189, 248;  /* #38bdf8 */
+  --color-primary-500: 14, 165, 233;  /* #0ea5e9 */
+  --color-primary-600: 2, 132, 199;   /* #0284c7 */
+  --color-primary-700: 3, 105, 161;   /* #0369a1 */
+  --color-primary-800: 7, 89, 133;    /* #075985 */
+  --color-primary-900: 12, 74, 110;   /* #0c4a6e */
+  --color-primary-950: 8, 47, 73;     /* #082f49 */
+  
+  /* ====== Secondary Colors - Purples ====== */
+  --color-secondary-50: 250, 245, 255;  /* #faf5ff */
+  --color-secondary-100: 243, 232, 255; /* #f3e8ff */
+  --color-secondary-200: 233, 213, 255; /* #e9d5ff */
+  --color-secondary-300: 216, 180, 254; /* #d8b4fe */
+  --color-secondary-400: 192, 132, 252; /* #c084fc */
+  --color-secondary-500: 168, 85, 247;  /* #a855f7 */
+  --color-secondary-600: 147, 51, 234;  /* #9333ea */
+  --color-secondary-700: 126, 34, 206;  /* #7e22ce */
+  --color-secondary-800: 107, 33, 168;  /* #6b21a8 */
+  --color-secondary-900: 88, 28, 135;   /* #581c87 */
+  --color-secondary-950: 59, 7, 100;    /* #3b0764 */
+  
+  /* ====== Neutral Colors - Grays ====== */
+  --color-gray-50: 249, 250, 251;  /* #f9fafb */
+  --color-gray-100: 243, 244, 246; /* #f3f4f6 */
+  --color-gray-200: 229, 231, 235; /* #e5e7eb */
+  --color-gray-300: 209, 213, 219; /* #d1d5db */
+  --color-gray-400: 156, 163, 175; /* #9ca3af */
+  --color-gray-500: 107, 114, 128; /* #6b7280 */
+  --color-gray-600: 75, 85, 99;    /* #4b5563 */
+  --color-gray-700: 55, 65, 81;    /* #374151 */
+  --color-gray-800: 31, 41, 55;    /* #1f2937 */
+  --color-gray-900: 17, 24, 39;    /* #111827 */
+  --color-gray-950: 9, 12, 19;     /* #090c13 */
+  
+  /* ====== Semantic Colors - For feedback and status ====== */
+  /* Success - Greens */
+  --color-success-50: 240, 253, 244;  /* #f0fdf4 */
+  --color-success-100: 220, 252, 231; /* #dcfce7 */
+  --color-success-200: 187, 247, 208; /* #bbf7d0 */
+  --color-success-300: 134, 239, 172; /* #86efac */
+  --color-success-400: 74, 222, 128;  /* #4ade80 */
+  --color-success-500: 34, 197, 94;   /* #22c55e */
+  --color-success-600: 22, 163, 74;   /* #16a34a */
+  --color-success-700: 21, 128, 61;   /* #15803d */
+  --color-success-800: 22, 101, 52;   /* #166534 */
+  --color-success-900: 20, 83, 45;    /* #14532d */
+  --color-success-950: 5, 46, 22;     /* #052e16 */
+  
+  /* Warning - Ambers */
+  --color-warning-50: 255, 251, 235;  /* #fffbeb */
+  --color-warning-100: 254, 243, 199; /* #fef3c7 */
+  --color-warning-200: 253, 230, 138; /* #fde68a */
+  --color-warning-300: 252, 211, 77;  /* #fcd34d */
+  --color-warning-400: 251, 191, 36;  /* #fbbf24 */
+  --color-warning-500: 245, 158, 11;  /* #f59e0b */
+  --color-warning-600: 217, 119, 6;   /* #d97706 */
+  --color-warning-700: 180, 83, 9;    /* #b45309 */
+  --color-warning-800: 146, 64, 14;   /* #92400e */
+  --color-warning-900: 120, 53, 15;   /* #78350f */
+  --color-warning-950: 69, 26, 3;     /* #451a03 */
+  
+  /* Error - Reds */
+  --color-error-50: 254, 242, 242;   /* #fef2f2 */
+  --color-error-100: 254, 226, 226;  /* #fee2e2 */
+  --color-error-200: 254, 202, 202;  /* #fecaca */
+  --color-error-300: 252, 165, 165;  /* #fca5a5 */
+  --color-error-400: 248, 113, 113;  /* #f87171 */
+  --color-error-500: 239, 68, 68;    /* #ef4444 */
+  --color-error-600: 220, 38, 38;    /* #dc2626 */
+  --color-error-700: 185, 28, 28;    /* #b91c1c */
+  --color-error-800: 153, 27, 27;    /* #991b1b */
+  --color-error-900: 127, 29, 29;    /* #7f1d1d */
+  --color-error-950: 69, 10, 10;     /* #450a0a */
+  
+  /* Info - Cyans */
+  --color-info-50: 236, 254, 255;   /* #ecfeff */
+  --color-info-100: 207, 250, 254;  /* #cffafe */
+  --color-info-200: 165, 243, 252;  /* #a5f3fc */
+  --color-info-300: 103, 232, 249;  /* #67e8f9 */
+  --color-info-400: 34, 211, 238;   /* #22d3ee */
+  --color-info-500: 6, 182, 212;    /* #06b6d4 */
+  --color-info-600: 8, 145, 178;    /* #0891b2 */
+  --color-info-700: 14, 116, 144;   /* #0e7490 */
+  --color-info-800: 21, 94, 117;    /* #155e75 */
+  --color-info-900: 22, 78, 99;     /* #164e63 */
+  --color-info-950: 8, 51, 68;      /* #083344 */
+  
+  /* ====== Typography ====== */
+  --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-mono: 'SF Mono', SFMono-Regular, ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace;
+  
+  /* ====== Spacing ====== */
+  --spacing-1: 0.25rem;    /* 4px */
+  --spacing-2: 0.5rem;     /* 8px */
+  --spacing-3: 0.75rem;    /* 12px */
+  --spacing-4: 1rem;       /* 16px */
+  --spacing-5: 1.25rem;    /* 20px */
+  --spacing-6: 1.5rem;     /* 24px */
+  --spacing-8: 2rem;       /* 32px */
+  --spacing-10: 2.5rem;    /* 40px */
+  --spacing-12: 3rem;      /* 48px */
+  --spacing-16: 4rem;      /* 64px */
+  --spacing-20: 5rem;      /* 80px */
+  --spacing-24: 6rem;      /* 96px */
+  
+  /* ====== Borders ====== */
+  --border-radius-sm: 0.125rem;  /* 2px */
+  --border-radius-md: 0.375rem;  /* 6px */
+  --border-radius-lg: 0.5rem;    /* 8px */
+  --border-radius-xl: 0.75rem;   /* 12px */
+  --border-radius-2xl: 1rem;     /* 16px */
+  --border-radius-full: 9999px;  /* For rounded full */
+  
+  /* ====== Shadows ====== */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  
+  /* ====== Transitions ====== */
+  --transition-all: all 0.3s ease;
+  --transition-colors: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
+  --transition-opacity: opacity 0.3s ease;
+  --transition-shadow: box-shadow 0.3s ease;
+  --transition-transform: transform 0.3s ease;
+  
+  /* ====== Z-indices ====== */
+  --z-0: 0;
+  --z-10: 10;
+  --z-20: 20;
+  --z-30: 30;
+  --z-40: 40;
+  --z-50: 50;
+  --z-auto: auto;
+}
+
+/* ====== Dark Mode Overrides ====== */
+.dark {
+  /* Card and container background colors for dark mode */
+  --card-bg: 22, 30, 46;          /* #161e2e - Slightly blue-tinted dark background */
+  --card-bg-secondary: 30, 41, 59; /* #1e293b - Slightly lighter for secondary elements */
+  --container-bg: 15, 23, 42;      /* #0f172a - Dark background for main containers */
+}
+
+/* Light mode defaults */
+:root {
+  --card-bg: 255, 255, 255;           /* #ffffff - White background */
+  --card-bg-secondary: 249, 250, 251; /* #f9fafb - Very light gray for secondary elements */
+  --container-bg: 249, 250, 251;      /* #f9fafb - Very light gray for main containers */
+}

@@ -1,0 +1,35 @@
+.features-section {
+  @apply py-16 md:py-24 bg-white;
+}
+
+.features-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.features-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.feature-card {
+  @apply p-6 bg-white rounded-xl shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-md;
+}
+
+.feature-icon {
+  @apply w-12 h-12 text-blue-600 mb-4;
+}
+
+.feature-title {
+  @apply text-xl font-semibold text-gray-900 mb-2;
+}
+
+.feature-description {
+  @apply text-gray-600;
+}
+
+.feature-link {
+  @apply mt-4 inline-flex items-center text-blue-600 hover:text-blue-700;
+}
+
+.feature-link-icon {
+  @apply ml-2 w-4 h-4;
+}

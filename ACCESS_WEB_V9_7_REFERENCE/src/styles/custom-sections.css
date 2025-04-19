@@ -1,0 +1,6 @@
+/* Custom section styling for section IDs */
+
+/* Section 120 - Dark mode background color override */
+.dark [data-section-id="120"] {
+  background-color: #111827 !important; /* Match the exact color requested */
+}

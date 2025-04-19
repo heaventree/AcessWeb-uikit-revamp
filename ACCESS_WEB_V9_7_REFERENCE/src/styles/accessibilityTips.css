@@ -1,0 +1,47 @@
+/**
+ * Accessibility Tips Styling
+ */
+
+/* By default hide the accessibility tip indicators unless specifically enabled */
+:root:not(.show-accessibility-tips) .accessibility-tip-indicator {
+  display: none !important;
+}
+
+/* When tips are enabled, show the indicators */
+:root.show-accessibility-tips .accessibility-tip-indicator {
+  display: block;
+}
+
+/* Make sure tooltips don't affect layout and are properly positioned */
+.accessibility-tip-tooltip {
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Show tooltips on hover when tips are enabled */
+:root.show-accessibility-tips .accessibility-tip-parent:hover .accessibility-tip-tooltip {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Indicator styling */
+.accessibility-tip-indicator {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 16px;
+  height: 16px;
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: help;
+  z-index: 10;
+  border: 1px solid white;
+}

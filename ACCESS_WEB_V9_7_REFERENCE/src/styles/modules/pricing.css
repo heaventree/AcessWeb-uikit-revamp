@@ -1,0 +1,63 @@
+.pricing-section {
+  @apply py-16 md:py-24 bg-gray-50;
+}
+
+.pricing-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.pricing-header {
+  @apply text-center mb-12;
+}
+
+.pricing-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-8;
+}
+
+.pricing-card {
+  @apply bg-white rounded-2xl shadow-lg overflow-hidden border-2 transition-all duration-300;
+}
+
+.pricing-card-recommended {
+  @apply border-blue-500;
+}
+
+.pricing-header {
+  @apply p-6 border-b border-gray-100;
+}
+
+.pricing-name {
+  @apply text-xl font-semibold text-gray-900;
+}
+
+.pricing-price {
+  @apply mt-4 flex items-baseline;
+}
+
+.pricing-amount {
+  @apply text-4xl font-bold text-gray-900;
+}
+
+.pricing-period {
+  @apply ml-1 text-gray-500;
+}
+
+.pricing-features {
+  @apply p-6 space-y-4;
+}
+
+.pricing-feature {
+  @apply flex items-center text-gray-600;
+}
+
+.pricing-feature-icon {
+  @apply w-5 h-5 text-green-500 mr-3;
+}
+
+.pricing-cta {
+  @apply p-6;
+}
+
+.pricing-button {
+  @apply w-full text-center py-3 px-4 rounded-lg font-medium transition-colors;
+}
