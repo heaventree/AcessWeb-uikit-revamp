@@ -8,46 +8,28 @@
 
 import React from 'react';
 import {
-  // Top-level navigation
+  // All icons used in the app
   Home,
   BarChart3,
-  Wrench, // Replacing Tool which isn't in the library
+  Wrench,
   Puzzle,
   FileText,
   CreditCard,
   HelpCircle,
-  
-  // Tools section
-  HelpCircle as WCAGCheckerIcon,
-  Palette as ColorPaletteIcon,
-  Eye as ColorSimulatorIcon,
-  FileText as WCAGStandardsIcon,
-  Image as ImageAltIcon,
-  
-  // Integrations section
-  ShoppingBag,
+  Palette,
+  Eye,
+  Image,
+  ShoppingCart,
   Globe,
-  Code,
+  Activity,
+  Shield,
   Building,
-  
-  // Resources section
-  FileText as Documentation,
-  BookOpen as Blog,
-  Compass,
-  LifeBuoy,
-  
-  // User dashboard
+  Zap,
   LayoutDashboard,
   User,
-  Shield,
   Settings,
-  Globe as Websites,
   History,
-  CreditCard as Subscription,
   Receipt,
-  CreditCard as Payment,
-  FileText as Reports,
-  FileBarChart,
   Download,
   Users,
   UserCog,
@@ -55,15 +37,7 @@ import {
   Key,
   Link,
   Webhook,
-  
-  // Admin section
-  LayoutDashboard as AdminDashboard,
-  Users as UserManagement,
-  FileText as ContentManagement,
-  CreditCard as SubscriptionManagement,
   CheckCircle,
-  BarChart3 as Analytics,
-  Settings as SystemSettings,
 } from 'lucide-react';
 
 export const NavigationIcons = {
@@ -78,28 +52,30 @@ export const NavigationIcons = {
     dashboard: BarChart3,
   },
   
-  // Tools Section
+  // Tools Section - matching the screenshot
   tools: {
-    checker: CheckSquare,
-    colors: Palette,
-    images: Image,
-    standards: BookOpen,
+    wcagChecker: HelpCircle,
+    colorPalette: Palette,
+    colorSimulator: Eye,
+    wcagStandards: FileText,
+    imageAltScanner: Image,
   },
   
-  // Integrations Section
+  // Integrations Section - matching the screenshot
   integrations: {
-    shopify: ShoppingBag,
+    shopify: ShoppingCart,
     wordpress: Globe,
-    api: Code,
+    api: Activity,
+    compliance: Shield,
     enterprise: Building,
   },
   
-  // Resources Section
+  // Resources Section - matching the screenshot
   resources: {
-    documentation: Documentation,
-    blog: Blog,
-    guides: Compass,
-    help: LifeBuoy,
+    documentation: FileText,
+    helpCenter: HelpCircle,
+    nonDestructiveFixes: Zap,
+    blog: FileText,
   },
   
   // User Dashboard 
@@ -110,11 +86,10 @@ export const NavigationIcons = {
     preferences: Settings,
     websites: Globe,
     scanHistory: History,
-    subscription: Subscription,
+    subscription: CreditCard,
     billing: Receipt,
     paymentMethods: CreditCard,
-    reports: Reports,
-    reportDetails: FileBarChart,
+    reports: FileText,
     export: Download,
     teamMembers: Users,
     roles: UserCog,
@@ -126,13 +101,13 @@ export const NavigationIcons = {
   
   // Admin Dashboard
   adminDashboard: {
-    overview: AdminDashboard,
-    userManagement: UserManagement,
-    contentManagement: ContentManagement,
-    subscriptionManagement: SubscriptionManagement,
+    overview: LayoutDashboard,
+    userManagement: Users,
+    contentManagement: FileText,
+    subscriptionManagement: CreditCard,
     verificationQueue: CheckCircle,
-    analytics: Analytics,
-    systemSettings: SystemSettings,
+    analytics: BarChart3,
+    systemSettings: Settings,
   },
 };
 
@@ -183,6 +158,30 @@ export function IconPreview() {
         <h2 className="text-2xl font-bold mb-4">Resources Section Icons</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {Object.entries(NavigationIcons.resources).map(([key, Icon]) => (
+            <div key={key} className="flex flex-col items-center p-4 border rounded-md">
+              <Icon className="h-6 w-6 mb-2" />
+              <span className="text-sm text-center">{key}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h2 className="text-2xl font-bold mb-4">User Dashboard Icons</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          {Object.entries(NavigationIcons.userDashboard).map(([key, Icon]) => (
+            <div key={key} className="flex flex-col items-center p-4 border rounded-md">
+              <Icon className="h-6 w-6 mb-2" />
+              <span className="text-sm text-center">{key}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h2 className="text-2xl font-bold mb-4">Admin Dashboard Icons</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          {Object.entries(NavigationIcons.adminDashboard).map(([key, Icon]) => (
             <div key={key} className="flex flex-col items-center p-4 border rounded-md">
               <Icon className="h-6 w-6 mb-2" />
               <span className="text-sm text-center">{key}</span>
