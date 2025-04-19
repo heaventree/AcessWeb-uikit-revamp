@@ -55,50 +55,58 @@
   }
 
   .dark {
-    --background: 17, 24, 39;
-    --foreground: 237, 244, 255;
+    /* Background and foreground with enhanced contrast */
+    --background: 15, 23, 42; /* #0f172a - Even darker for better contrast */
+    --foreground: 248, 250, 252; /* #f8fafc - Very light gray, almost white */
     
-    --card: 26, 32, 44;
-    --card-foreground: 237, 244, 255;
+    /* Card colors with sufficient contrast against text */
+    --card: 30, 41, 59; /* #1e293b - Dark blue-gray for cards */
+    --card-foreground: 248, 250, 252; /* #f8fafc - Very light gray, almost white */
     
-    --popover: 26, 32, 44;
-    --popover-foreground: 237, 244, 255;
+    /* Popover with consistent styling */
+    --popover: 30, 41, 59; /* #1e293b - Same as card for consistency */
+    --popover-foreground: 248, 250, 252; /* #f8fafc - Very light gray for text */
     
-    --primary: 171, 80%, 40%;
-    --primary-foreground: 0, 0%, 100%;
+    /* Primary and secondary colors with same hue but adjusted for dark mode */
+    --primary: 171, 80%, 45%; /* Slightly brighter teal for dark mode visibility */
+    --primary-foreground: 0, 0%, 100%; /* Pure white text on primary */
     
-    --secondary: 215, 100%, 50%;
-    --secondary-foreground: 0, 0%, 100%;
+    --secondary: 215, 100%, 60%; /* Brighter blue for dark mode */
+    --secondary-foreground: 0, 0%, 100%; /* Pure white text on secondary */
     
-    --muted: 55, 65, 81;
-    --muted-foreground: 209, 213, 219;
+    /* Muted elements with proper contrast */
+    --muted: 51, 65, 85; /* #334155 - Medium dark blue-gray */
+    --muted-foreground: 226, 232, 240; /* #e2e8f0 - Light gray with 7:1 contrast */
     
-    --accent: 17, 24, 39;
-    --accent-foreground: 171, 80%, 40%;
+    /* Accent colors adjusted for dark theme */
+    --accent: 51, 65, 85; /* #334155 - Medium dark blue-gray */
+    --accent-foreground: 186, 230, 253; /* #bae6fd - Light blue with good contrast */
     
-    --destructive: 0, 62%, 50%;
-    --destructive-foreground: 0, 0%, 100%;
+    /* Destructive actions with accessible contrast */
+    --destructive: 0, 90%, 60%; /* Brighter red for visibility */
+    --destructive-foreground: 255, 255, 255; /* White text on destructive */
     
-    --border: 55, 65, 81;
-    --input: 55, 65, 81;
-    --ring: 171, 80%, 40%;
+    /* Border, input and focus ring colors */
+    --border: 71, 85, 105; /* #475569 - Medium gray-blue for borders */
+    --input: 71, 85, 105; /* #475569 - Same as border for inputs */
+    --ring: 171, 80%, 50%; /* Brighter teal for focus states */
     
-    /* Chart colors for dark mode */
-    --chart-1: 171, 80%, 40%;
-    --chart-2: 183, 67%, 54%;
-    --chart-3: 192, 59%, 51%;
-    --chart-4: 200, 98%, 39%;
-    --chart-5: 215, 100%, 50%;
+    /* Chart colors for dark mode - Brighter for visibility */
+    --chart-1: 171, 80%, 50%; /* Brighter teal */
+    --chart-2: 183, 70%, 60%; /* Brighter cyan */
+    --chart-3: 192, 75%, 60%; /* Brighter light blue */
+    --chart-4: 200, 98%, 50%; /* Brighter blue */
+    --chart-5: 215, 100%, 60%; /* Brighter royal blue */
     
-    /* Sidebar colors for dark mode */
-    --sidebar-background: 26, 32, 44;
-    --sidebar-foreground: 237, 244, 255;
-    --sidebar-primary: 171, 80%, 40%;
-    --sidebar-primary-foreground: 0, 0%, 100%;
-    --sidebar-accent: 17, 24, 39;
-    --sidebar-accent-foreground: 171, 80%, 40%;
-    --sidebar-border: 55, 65, 81;
-    --sidebar-ring: 171, 80%, 40%;
+    /* Sidebar colors with consistent dark theme styling */
+    --sidebar-background: 30, 41, 59; /* #1e293b - Same as card */
+    --sidebar-foreground: 248, 250, 252; /* #f8fafc - Very light gray */
+    --sidebar-primary: 171, 80%, 45%; /* Slightly brighter teal for visibility */
+    --sidebar-primary-foreground: 0, 0%, 100%; /* White text */
+    --sidebar-accent: 51, 65, 85; /* #334155 - Medium dark blue-gray */
+    --sidebar-accent-foreground: 186, 230, 253; /* #bae6fd - Light blue */
+    --sidebar-border: 71, 85, 105; /* #475569 - Medium gray-blue */
+    --sidebar-ring: 171, 80%, 50%; /* Brighter teal for focus */
   }
 
   * {

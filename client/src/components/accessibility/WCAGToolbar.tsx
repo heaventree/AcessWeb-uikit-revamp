@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon, ZoomIn, ZoomOut, Type, Settings } from 'lucide-react';
+import { Sun, Moon, ZoomIn, ZoomOut, Type, Settings, Move, Underline, MousePointer } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Separator } from '@/components/ui/separator';
+import { WCAGBadge } from './WCAGBadge';
 
-// Font size options 
+// Font size options per WCAG 1.4.4 (Resize text)
 type FontSizeOption = 'normal' | 'large' | 'x-large';
-// Contrast modes
+// Contrast modes per WCAG 1.4.3/1.4.6 (Contrast)
 type ContrastMode = 'normal' | 'high';
+// Motion reduction per WCAG 2.3.3 (Animation from Interactions)
+type MotionPreference = 'default' | 'reduced';
+// Text spacing per WCAG 1.4.12 (Text Spacing)
+type TextSpacingOption = 'default' | 'increased';
 
 export function WCAGToolbar() {
   // State for toolbar visibility
@@ -19,6 +24,9 @@ export function WCAGToolbar() {
   // State for accessibility settings
   const [fontSize, setFontSize] = useState<FontSizeOption>('normal');
   const [contrastMode, setContrastMode] = useState<ContrastMode>('normal');
+  const [motionPreference, setMotionPreference] = useState<MotionPreference>('default');
+  const [textSpacing, setTextSpacing] = useState<TextSpacingOption>('default');
+  const [focusIndicator, setFocusIndicator] = useState(false);
   
   // Track current theme state
   const [theme, setThemeState] = useState<'dark' | 'light'>('light');
@@ -33,15 +41,36 @@ export function WCAGToolbar() {
     document.documentElement.classList.remove('contrast-normal', 'contrast-high');
     document.documentElement.classList.add(`contrast-${contrastMode}`);
     
+    // Apply motion preference
+    document.documentElement.classList.remove('motion-default', 'motion-reduced');
+    document.documentElement.classList.add(`motion-${motionPreference}`);
+    
+    // Apply text spacing
+    document.documentElement.classList.remove('text-spacing-default', 'text-spacing-increased');
+    document.documentElement.classList.add(`text-spacing-${textSpacing}`);
+    
+    // Apply focus indicator
+    if (focusIndicator) {
+      document.documentElement.classList.add('enhanced-focus');
+    } else {
+      document.documentElement.classList.remove('enhanced-focus');
+    }
+    
     // Store settings in localStorage
     localStorage.setItem('wcag-font-size', fontSize);
     localStorage.setItem('wcag-contrast-mode', contrastMode);
-  }, [fontSize, contrastMode]);
+    localStorage.setItem('wcag-motion-preference', motionPreference);
+    localStorage.setItem('wcag-text-spacing', textSpacing);
+    localStorage.setItem('wcag-focus-indicator', focusIndicator.toString());
+  }, [fontSize, contrastMode, motionPreference, textSpacing, focusIndicator]);
   
   // Load settings from localStorage on component mount
   useEffect(() => {
     const savedFontSize = localStorage.getItem('wcag-font-size') as FontSizeOption | null;
     const savedContrastMode = localStorage.getItem('wcag-contrast-mode') as ContrastMode | null;
+    const savedMotionPreference = localStorage.getItem('wcag-motion-preference') as MotionPreference | null;
+    const savedTextSpacing = localStorage.getItem('wcag-text-spacing') as TextSpacingOption | null;
+    const savedFocusIndicator = localStorage.getItem('wcag-focus-indicator');
     
     if (savedFontSize) {
       setFontSize(savedFontSize);
@@ -49,6 +78,18 @@ export function WCAGToolbar() {
     
     if (savedContrastMode) {
       setContrastMode(savedContrastMode);
+    }
+    
+    if (savedMotionPreference) {
+      setMotionPreference(savedMotionPreference);
+    }
+    
+    if (savedTextSpacing) {
+      setTextSpacing(savedTextSpacing);
+    }
+    
+    if (savedFocusIndicator === 'true') {
+      setFocusIndicator(true);
     }
   }, []);
   
@@ -70,6 +111,21 @@ export function WCAGToolbar() {
   // Toggle contrast mode
   const toggleContrastMode = () => {
     setContrastMode(prevMode => prevMode === 'normal' ? 'high' : 'normal');
+  };
+  
+  // Toggle motion preference
+  const toggleMotionPreference = () => {
+    setMotionPreference(prevPref => prevPref === 'default' ? 'reduced' : 'default');
+  };
+  
+  // Toggle text spacing
+  const toggleTextSpacing = () => {
+    setTextSpacing(prevSpacing => prevSpacing === 'default' ? 'increased' : 'default');
+  };
+  
+  // Toggle focus indicator
+  const toggleFocusIndicator = () => {
+    setFocusIndicator(prevState => !prevState);
   };
   
   // Update theme state when component mounts and when theme changes
@@ -138,6 +194,12 @@ export function WCAGToolbar() {
             <Separator />
             
             <div className="grid gap-4">
+              {/* Display WCAG compliance badge */}
+              <div className="flex justify-center mb-1">
+                <WCAGBadge level="AA" size="md" showTooltip={true} />
+              </div>
+              
+              {/* Dark mode toggle */}
               <div className="flex items-center justify-between">
                 <Label htmlFor="theme-toggle" className="text-sm">
                   Dark Mode
@@ -150,6 +212,7 @@ export function WCAGToolbar() {
                 />
               </div>
               
+              {/* High contrast for WCAG 1.4.3 (Contrast Minimum) */}
               <div className="flex items-center justify-between">
                 <Label htmlFor="contrast-toggle" className="text-sm">
                   High Contrast
@@ -162,6 +225,7 @@ export function WCAGToolbar() {
                 />
               </div>
               
+              {/* Text size for WCAG 1.4.4 (Resize Text) */}
               <div className="flex items-center justify-between">
                 <Label className="text-sm">Text Size</Label>
                 <div className="flex items-center gap-2">
@@ -190,6 +254,45 @@ export function WCAGToolbar() {
                   </Button>
                 </div>
               </div>
+              
+              {/* Motion reduction for WCAG 2.3.3 (Animation from Interactions) */}
+              <div className="flex items-center justify-between">
+                <Label htmlFor="motion-toggle" className="text-sm">
+                  Reduce Motion
+                </Label>
+                <Switch
+                  id="motion-toggle"
+                  checked={motionPreference === 'reduced'}
+                  onCheckedChange={toggleMotionPreference}
+                  aria-label={motionPreference === 'reduced' ? 'Enable animations' : 'Reduce animations'}
+                />
+              </div>
+              
+              {/* Text spacing for WCAG 1.4.12 (Text Spacing) */}
+              <div className="flex items-center justify-between">
+                <Label htmlFor="text-spacing-toggle" className="text-sm">
+                  Increased Spacing
+                </Label>
+                <Switch
+                  id="text-spacing-toggle"
+                  checked={textSpacing === 'increased'}
+                  onCheckedChange={toggleTextSpacing}
+                  aria-label={textSpacing === 'increased' ? 'Normal text spacing' : 'Increase text spacing'}
+                />
+              </div>
+              
+              {/* Focus indicators for WCAG 2.4.7 (Focus Visible) */}
+              <div className="flex items-center justify-between">
+                <Label htmlFor="focus-toggle" className="text-sm">
+                  Enhanced Focus
+                </Label>
+                <Switch
+                  id="focus-toggle"
+                  checked={focusIndicator}
+                  onCheckedChange={toggleFocusIndicator}
+                  aria-label={focusIndicator ? 'Standard focus indicators' : 'Enhanced focus indicators'}
+                />
+              </div>
             </div>
           </div>
         </Card>
@@ -217,8 +320,9 @@ export function WCAGToolbar() {
   );
 }
 
-// Add global CSS for font size classes
-export const WCAGStyles = `
+// Add global CSS for WCAG compliance features as a constant
+const wcagStylesContent = `
+/* WCAG 1.4.4 - Resize Text */
 .font-size-normal {
   font-size: 1rem;
 }
@@ -231,6 +335,7 @@ export const WCAGStyles = `
   font-size: 1.5rem;
 }
 
+/* WCAG 1.4.3 - Contrast (Minimum) */
 .contrast-high {
   filter: contrast(1.5);
 }
@@ -238,6 +343,68 @@ export const WCAGStyles = `
 .contrast-normal {
   filter: contrast(1);
 }
+
+/* WCAG 2.3.3 - Animation from Interactions */
+.motion-reduced * {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+.motion-default {
+  /* Default animation behavior */
+}
+
+/* WCAG 1.4.12 - Text Spacing */
+.text-spacing-increased {
+  line-height: 1.5 !important;
+  letter-spacing: 0.12em !important;
+  word-spacing: 0.16em !important;
+}
+
+.text-spacing-increased p, 
+.text-spacing-increased li, 
+.text-spacing-increased h1, 
+.text-spacing-increased h2, 
+.text-spacing-increased h3, 
+.text-spacing-increased h4, 
+.text-spacing-increased h5, 
+.text-spacing-increased h6,
+.text-spacing-increased button {
+  margin-bottom: 2em !important;
+  line-height: 1.5 !important;
+}
+
+.text-spacing-default {
+  /* Default text spacing */
+}
+
+/* WCAG 2.4.7 - Focus Visible */
+.enhanced-focus:focus-visible,
+.enhanced-focus *:focus-visible {
+  outline: 3px solid hsl(var(--primary)) !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 3px rgba(var(--background), 0.8) !important;
+  transition: outline-offset 0.1s ease !important;
+  border-radius: 2px !important;
+}
+
+/* Add high contrast focus indicator for keyboard navigation */
+.enhanced-focus button:focus-visible,
+.enhanced-focus a:focus-visible,
+.enhanced-focus input:focus-visible,
+.enhanced-focus select:focus-visible,
+.enhanced-focus textarea:focus-visible {
+  outline: 3px solid hsl(var(--primary)) !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 3px rgba(var(--background), 0.8) !important;
+}
 `;
+
+// Export as a function to avoid Fast Refresh issues
+export function getWCAGStyles() {
+  return wcagStylesContent;
+}
 
 export default WCAGToolbar;
