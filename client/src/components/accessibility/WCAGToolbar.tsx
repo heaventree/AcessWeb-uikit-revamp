@@ -5,7 +5,6 @@ import { Card } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { useTheme } from '@/components/ui/theme-provider';
 import { Separator } from '@/components/ui/separator';
 
 // Font size options 
@@ -21,8 +20,8 @@ export function WCAGToolbar() {
   const [fontSize, setFontSize] = useState<FontSizeOption>('normal');
   const [contrastMode, setContrastMode] = useState<ContrastMode>('normal');
   
-  // Get theme function from context
-  const { theme, setTheme } = useTheme();
+  // Track current theme state
+  const [theme, setThemeState] = useState<'dark' | 'light'>('light');
   
   // Apply settings to document when they change
   useEffect(() => {
@@ -73,9 +72,46 @@ export function WCAGToolbar() {
     setContrastMode(prevMode => prevMode === 'normal' ? 'high' : 'normal');
   };
   
+  // Update theme state when document theme changes
+  useEffect(() => {
+    // Get initial theme
+    const isDark = document.documentElement.classList.contains("dark");
+    setThemeState(isDark ? "dark" : "light");
+    
+    // Set up a mutation observer to track theme changes from other components
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.attributeName === "class" &&
+          mutation.target === document.documentElement
+        ) {
+          const isDarkNow = document.documentElement.classList.contains("dark");
+          setThemeState(isDarkNow ? "dark" : "light");
+        }
+      });
+    });
+    
+    observer.observe(document.documentElement, { attributes: true });
+    
+    // Clean up observer on unmount
+    return () => observer.disconnect();
+  }, []);
+  
   // Toggle theme
   const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
+    const root = window.document.documentElement;
+    
+    if (root.classList.contains("dark")) {
+      root.classList.remove("dark");
+      root.classList.add("light");
+      localStorage.setItem("accessweb-theme", "light");
+      setThemeState("light");
+    } else {
+      root.classList.remove("light");
+      root.classList.add("dark");
+      localStorage.setItem("accessweb-theme", "dark");
+      setThemeState("dark");
+    }
   };
   
   return (
