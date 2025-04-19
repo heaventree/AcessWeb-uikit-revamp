@@ -3,6 +3,7 @@ import { IconPreview } from '../components/navigation/NavigationIconGuide';
 import NavigationIcons from '../components/navigation/NavigationIconGuide';
 import { MenuStyleShowcase } from '../components/navigation/MenuItemExample';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ToolsDropdown } from '../components/navigation/DropdownExample';
 
 const IconGuidePage = () => {
   // Example menu sections based on our navigation structure
@@ -103,6 +104,7 @@ const IconGuidePage = () => {
       <Tabs defaultValue="examples">
         <TabsList className="mb-4">
           <TabsTrigger value="examples" className="text-base">Menu Examples</TabsTrigger>
+          <TabsTrigger value="dropdown" className="text-base">Dropdown Example</TabsTrigger>
           <TabsTrigger value="icons" className="text-base">Icon List</TabsTrigger>
         </TabsList>
         
@@ -111,6 +113,16 @@ const IconGuidePage = () => {
             <h2 className="text-2xl font-bold mb-4">Menu Item Examples</h2>
             <p className="text-base mb-6">These examples show how the icons appear in actual menu items with labels and descriptions.</p>
             <MenuStyleShowcase sections={menuSections} />
+          </div>
+        </TabsContent>
+        
+        <TabsContent value="dropdown" className="space-y-6">
+          <div className="bg-card p-6 rounded-lg border">
+            <h2 className="text-2xl font-bold mb-4">Dropdown Menu Example</h2>
+            <p className="text-base mb-6">This is how a dropdown menu would appear in the application with the updated styling.</p>
+            <div className="flex justify-center py-8 bg-gray-50 dark:bg-gray-800 rounded-md">
+              <ToolsDropdown />
+            </div>
           </div>
         </TabsContent>
         

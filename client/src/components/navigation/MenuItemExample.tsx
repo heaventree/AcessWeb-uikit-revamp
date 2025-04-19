@@ -19,14 +19,14 @@ export const MenuItemDisplay: React.FC<MenuItem> = ({ icon: Icon, label, descrip
   return (
     <div className="p-3 rounded-md hover:bg-accent/50 transition-colors">
       <div className="flex items-center mb-1">
-        {/* Icon aligned with title */}
+        {/* Icon aligned to the far left */}
         <Icon className="h-5 w-5 mr-2 text-primary" />
         {/* Main title - ensuring 16px minimum font size */}
         <div className="font-medium text-base">{label}</div>
       </div>
-      {/* Description aligned with left edge of the icon */}
+      {/* Description aligned with the far left edge (no indent) */}
       {description && (
-        <div className="pl-7 text-base text-muted-foreground">
+        <div className="text-base text-muted-foreground">
           {description}
         </div>
       )}
@@ -40,7 +40,7 @@ export const MenuSectionDisplay: React.FC<MenuSection> = ({ title, items }) => {
     <div className="space-y-2">
       {/* Section title with WCAG compliant font size */}
       <h3 className="text-xl font-semibold mb-3">{title}</h3>
-      <div className="space-y-1 border rounded-lg p-2">
+      <div className="space-y-1 border rounded-lg p-2 max-w-md">
         {items.map((item, index) => (
           <MenuItemDisplay key={index} {...item} />
         ))}
