@@ -5,33 +5,39 @@ import "./index.css";
 // Initialize theme from localStorage or system preference
 function initializeTheme() {
   console.log("Initializing theme");
-  // Check for stored theme
-  const storedTheme = localStorage.getItem("accessweb-theme");
+  
+  // Get the document root element
   const root = window.document.documentElement;
   
-  // Clear any existing theme classes first
-  root.classList.remove("light", "dark");
+  // Clear any existing theme classes first to avoid conflicts
+  root.classList.remove('light', 'dark');
   
-  if (storedTheme) {
-    // Apply stored theme
-    console.log("Applying stored theme:", storedTheme);
-    root.classList.add(storedTheme);
-    document.body.style.colorScheme = storedTheme;
-  } else {
-    // Check system preference
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    console.log("System prefers dark:", prefersDark);
-    
-    if (prefersDark) {
-      root.classList.add("dark");
-      document.body.style.colorScheme = "dark";
-      localStorage.setItem("accessweb-theme", "dark");
-    } else {
-      root.classList.add("light");
-      document.body.style.colorScheme = "light";
-      localStorage.setItem("accessweb-theme", "light");
-    }
+  // Get stored theme or use system preference as fallback
+  const storedTheme = localStorage.getItem("accessweb-theme");
+  const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  
+  // Determine which theme to use
+  let finalTheme = "light";
+  
+  if (storedTheme === "dark" || (storedTheme === null && systemPrefersDark)) {
+    finalTheme = "dark";
   }
+  
+  // Apply final theme
+  root.classList.add(finalTheme);
+  localStorage.setItem("accessweb-theme", finalTheme);
+  document.body.style.colorScheme = finalTheme;
+  
+  // Set a data attribute for additional CSS targeting
+  root.setAttribute('data-theme', finalTheme);
+  
+  // Force a repaint to ensure all elements update correctly
+  setTimeout(() => {
+    // This small delay helps ensure the theme is properly applied
+    document.body.style.display = 'none';
+    document.body.offsetHeight; // Trigger a reflow
+    document.body.style.display = '';
+  }, 10);
   
   console.log("Theme classes after initialization:", root.classList.toString());
 }

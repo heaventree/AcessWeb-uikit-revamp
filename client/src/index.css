@@ -1,4 +1,4 @@
-@import "../src/styles/global-theme.css";
+/* AccessWebPro Theme System - consolidated theme */
 
 @tailwind base;
 @tailwind components;
@@ -125,5 +125,132 @@
   /* Accessibility: Skip to content link */
   .skip-to-content {
     @apply sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-background focus:px-4 focus:py-2 focus:text-foreground focus:outline-none focus:ring-2 focus:ring-ring;
+  }
+  
+  /* ====== WCAG Accessibility Features ====== */
+  
+  /* WCAG 1.4.4 - Resize Text */
+  .font-size-normal {
+    font-size: 1rem;
+  }
+  
+  .font-size-large {
+    font-size: 1.25rem;
+  }
+  
+  .font-size-x-large {
+    font-size: 1.5rem;
+  }
+  
+  /* WCAG 1.4.3 - Contrast (Minimum) */
+  .contrast-high {
+    filter: contrast(1.5);
+  }
+  
+  .contrast-normal {
+    filter: contrast(1);
+  }
+  
+  /* WCAG 2.3.3 - Animation from Interactions */
+  .motion-reduced * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .motion-default {
+    /* Default animation behavior */
+  }
+  
+  /* WCAG 1.4.12 - Text Spacing */
+  .text-spacing-increased {
+    line-height: 1.5 !important;
+    letter-spacing: 0.12em !important;
+    word-spacing: 0.16em !important;
+  }
+  
+  .text-spacing-increased p, 
+  .text-spacing-increased li, 
+  .text-spacing-increased h1, 
+  .text-spacing-increased h2, 
+  .text-spacing-increased h3, 
+  .text-spacing-increased h4, 
+  .text-spacing-increased h5, 
+  .text-spacing-increased h6,
+  .text-spacing-increased button {
+    margin-bottom: 2em !important;
+    line-height: 1.5 !important;
+  }
+  
+  .text-spacing-default {
+    /* Default text spacing */
+  }
+  
+  /* WCAG 2.4.7 - Focus Visible */
+  .enhanced-focus:focus-visible,
+  .enhanced-focus *:focus-visible {
+    outline: 3px solid hsl(var(--primary)) !important;
+    outline-offset: 3px !important;
+    box-shadow: 0 0 0 3px rgba(var(--background), 0.8) !important;
+    transition: outline-offset 0.1s ease !important;
+    border-radius: 2px !important;
+  }
+  
+  /* Add high contrast focus indicator for keyboard navigation */
+  .enhanced-focus button:focus-visible,
+  .enhanced-focus a:focus-visible,
+  .enhanced-focus input:focus-visible,
+  .enhanced-focus select:focus-visible,
+  .enhanced-focus textarea:focus-visible {
+    outline: 3px solid hsl(var(--primary)) !important;
+    outline-offset: 3px !important;
+    box-shadow: 0 0 0 3px rgba(var(--background), 0.8) !important;
+  }
+  
+  /* Dark mode focus styles with enhanced visibility */
+  .dark .enhanced-focus:focus-visible,
+  .dark .enhanced-focus *:focus-visible {
+    outline: 3px solid rgb(45, 212, 191) !important; /* Brighter teal for visibility */
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.8) !important; /* Dark background for the shadow */
+  }
+  
+  /* Dark mode focus styles for interactive elements */
+  .dark .enhanced-focus button:focus-visible,
+  .dark .enhanced-focus a:focus-visible,
+  .dark .enhanced-focus input:focus-visible,
+  .dark .enhanced-focus select:focus-visible,
+  .dark .enhanced-focus textarea:focus-visible {
+    outline: 3px solid rgb(45, 212, 191) !important; /* Brighter teal for visibility */
+    outline-offset: 3px !important;
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.8) !important; /* Dark background */
+  }
+  
+  /* Smooth transitions with respect for reduced motion preferences */
+  @media (prefers-reduced-motion: no-preference) {
+    :root {
+      scroll-behavior: smooth;
+    }
+    
+    * {
+      transition: background-color 0.2s ease-in-out, 
+                  color 0.2s ease-in-out, 
+                  border-color 0.2s ease-in-out,
+                  box-shadow 0.2s ease-in-out;
+    }
+  }
+  
+  /* Remove transitions for users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      scroll-behavior: auto;
+    }
+    
+    * {
+      transition: none !important;
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+    }
   }
 }

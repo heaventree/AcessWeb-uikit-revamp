@@ -37,6 +37,7 @@ export default function Navbar() {
       root.classList.add("light");
       localStorage.setItem("accessweb-theme", "light");
       document.body.style.colorScheme = "light";
+      root.setAttribute('data-theme', 'light');
       setDarkMode(false);
       console.log("Switched to light mode");
     } else {
@@ -45,9 +46,17 @@ export default function Navbar() {
       root.classList.add("dark");
       localStorage.setItem("accessweb-theme", "dark");
       document.body.style.colorScheme = "dark";
+      root.setAttribute('data-theme', 'dark');
       setDarkMode(true);
       console.log("Switched to dark mode");
     }
+    
+    // Force a repaint to ensure all elements update correctly
+    setTimeout(() => {
+      document.body.style.display = 'none';
+      document.body.offsetHeight; // Trigger a reflow
+      document.body.style.display = '';
+    }, 10);
     
     // Log updated state
     console.log("Updated classes:", root.classList.toString());
