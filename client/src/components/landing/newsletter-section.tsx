@@ -59,7 +59,7 @@ export default function NewsletterSection({ onNewsletterSignup, isSubmitting }: 
                 </Button>
               </form>
               
-              <p className="text-gray-500 dark:text-gray-400 text-xs mt-4">
+              <p className="text-gray-500 dark:text-gray-400 text-sm mt-4">
                 By subscribing, you agree to our Privacy Policy. We respect your privacy and will never share your information.
               </p>
             </div>
