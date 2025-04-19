@@ -18,10 +18,11 @@ import {
   HelpCircle,
   
   // Tools section
-  CheckSquare,
-  Palette,
-  Image,
-  BookOpen,
+  HelpCircle as WCAGCheckerIcon,
+  Palette as ColorPaletteIcon,
+  Eye as ColorSimulatorIcon,
+  FileText as WCAGStandardsIcon,
+  Image as ImageAltIcon,
   
   // Integrations section
   ShoppingBag,
