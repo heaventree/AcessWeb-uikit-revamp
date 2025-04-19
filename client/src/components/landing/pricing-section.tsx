@@ -44,32 +44,32 @@ function PricingPlan({
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5, delay }}
-      className={`bg-white rounded-2xl p-8 shadow-sm border ${isPopular ? 'border-[#0fae96] shadow-lg relative' : 'border-gray-100'} flex flex-col h-full`}
+      className={`bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-sm border ${isPopular ? 'border-[#0fae96] dark:border-[#5eead4] shadow-lg relative' : 'border-gray-100 dark:border-gray-700'} flex flex-col h-full`}
     >
       {isPopular && (
-        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#0fae96] text-white px-5 py-1.5 rounded-full text-sm font-medium">
+        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#0fae96] dark:bg-[#0fae96] text-white px-5 py-1.5 rounded-full text-sm font-medium">
           Most Popular
         </div>
       )}
       <div className="mb-8">
-        <h3 className="text-xl font-bold mb-2">{name}</h3>
-        <p className="text-gray-600">{description}</p>
+        <h3 className="text-xl font-bold mb-2 dark:text-white">{name}</h3>
+        <p className="text-gray-600 dark:text-gray-300">{description}</p>
       </div>
       
       <div className="mb-8">
         <div className="flex items-end">
-          <span className="text-5xl font-extrabold">{price}</span>
-          <span className="text-gray-500 ml-2 mb-1.5">/{period}</span>
+          <span className="text-5xl font-extrabold dark:text-white">{price}</span>
+          <span className="text-gray-500 dark:text-gray-400 ml-2 mb-1.5">/{period}</span>
         </div>
       </div>
       
       <div className="mb-8 flex-grow">
-        <p className="text-sm text-gray-500 mb-4 font-medium">INCLUDES:</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 font-medium">INCLUDES:</p>
         <ul className="space-y-4">
           {features.map((feature, index) => (
             <li key={index} className="flex items-start">
-              <Check className={`mr-3 h-5 w-5 ${feature.available ? accentColor : 'text-gray-300'} flex-shrink-0`} />
-              <span className={`text-gray-600 ${!feature.available && 'text-gray-400 line-through'}`}>{feature.text}</span>
+              <Check className={`mr-3 h-5 w-5 ${feature.available ? accentColor + ' dark:text-[#5eead4]' : 'text-gray-300 dark:text-gray-600'} flex-shrink-0`} />
+              <span className={`text-gray-600 dark:text-gray-300 ${!feature.available && 'text-gray-400 dark:text-gray-500 line-through'}`}>{feature.text}</span>
             </li>
           ))}
         </ul>
@@ -79,9 +79,9 @@ function PricingPlan({
         variant={variant as any} 
         className={`
           ${variant === 'primary' 
-            ? `bg-[#0fae96] hover:bg-[#0fae96]/90 text-white` 
+            ? `bg-[#0fae96] hover:bg-[#0fae96]/90 dark:bg-[#0fae96] dark:hover:bg-[#0fae96]/80 text-white` 
             : variant === 'outline' 
-              ? 'border-gray-200 text-gray-700 hover:bg-gray-50 hover:text-gray-900' 
+              ? 'border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white' 
               : ''}
           transition-colors rounded-full py-6 ${isPopular ? 'shadow-md' : ''}
         `}
@@ -161,11 +161,11 @@ export default function PricingSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <Badge variant="outline" className="bg-[#e0f5f1] text-[#0fae96] border-0 rounded-full px-4 py-1 mb-6">
+          <Badge variant="outline" className="bg-[#e0f5f1] dark:bg-[#0fae96]/20 text-[#0fae96] dark:text-[#5eead4] border-0 rounded-full px-4 py-1 mb-6">
             Choose a package
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Simple, Transparent Pricing</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 dark:text-white">Simple, Transparent Pricing</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             No hidden fees or complicated tiers. Choose the plan that's right for your business.
           </p>
         </motion.div>
@@ -194,8 +194,8 @@ export default function PricingSection() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-20 text-center"
         >
-          <p className="text-gray-600 mb-4">Need a custom solution for your enterprise organization?</p>
-          <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white rounded-full">
+          <p className="text-gray-600 dark:text-gray-300 mb-4">Need a custom solution for your enterprise organization?</p>
+          <Button variant="outline" className="border-primary text-primary dark:border-[#5eead4] dark:text-[#5eead4] hover:bg-primary dark:hover:bg-[#0fae96]/20 hover:text-white dark:hover:text-white rounded-full">
             Contact our sales team <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </motion.div>
