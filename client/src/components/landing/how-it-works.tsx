@@ -26,21 +26,21 @@ function Step({ number, title, description, isLast = false, delay, icon }: StepP
       transition={{ duration: 0.5, delay }}
       className="flex flex-col items-center text-center max-w-sm mx-auto"
     >
-      <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold mb-5 shadow-md border border-gray-100 relative">
-        <div className="absolute -top-1 -right-1 bg-[#0fae96] text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold">
+      <div className="bg-white dark:bg-gray-800 w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold mb-5 shadow-md border border-gray-100 dark:border-gray-700 relative">
+        <div className="absolute -top-1 -right-1 bg-[#0fae96] dark:bg-[#0fae96] text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold">
           {number}
         </div>
-        <div className="text-[#0fae96] w-6 h-6">
+        <div className="text-[#0fae96] dark:text-[#5eead4] w-6 h-6">
           {icon}
         </div>
       </div>
       
       {!isLast && (
-        <div className="hidden md:block w-24 h-px bg-gray-200 absolute right-[-3rem] top-8"></div>
+        <div className="hidden md:block w-24 h-px bg-gray-200 dark:bg-gray-700 absolute right-[-3rem] top-8"></div>
       )}
       
-      <h3 className="text-xl font-bold mb-3">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+      <h3 className="text-xl font-bold mb-3 dark:text-white">{title}</h3>
+      <p className="text-gray-600 dark:text-gray-300">{description}</p>
     </motion.div>
   );
 }
@@ -68,7 +68,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section id="how-it-works" className="py-24 md:py-32 bg-gradient-to-b from-white to-[#f9fdff]">
+    <section id="how-it-works" className="py-24 md:py-32 bg-gradient-to-b from-white dark:from-gray-900 to-[#f9fdff] dark:to-gray-800">
       <div className="container mx-auto px-4">
         <motion.div 
           ref={ref}
@@ -77,11 +77,11 @@ export default function HowItWorks() {
           transition={{ duration: 0.5 }}
           className="text-center mb-20"
         >
-          <Badge variant="outline" className="bg-[#e0f5f1] text-[#0fae96] border-0 rounded-full px-4 py-1 mb-6">
+          <Badge variant="outline" className="bg-[#e0f5f1] dark:bg-[#0fae96]/20 text-[#0fae96] dark:text-[#5eead4] border-0 rounded-full px-4 py-1 mb-6">
             One dashboard for effortless monitoring
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">How AccessWebPro Works</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 dark:text-white">How AccessWebPro Works</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Our powerful platform makes achieving WCAG compliance simple and efficient in just three easy steps
           </p>
         </motion.div>
@@ -104,25 +104,25 @@ export default function HowItWorks() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 max-w-5xl mx-auto"
+          className="bg-white dark:bg-gray-800 p-10 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 max-w-5xl mx-auto"
         >
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
-              <h3 className="text-2xl font-bold mb-3">Ready to get started?</h3>
-              <p className="text-gray-600">Join 5000+ businesses already using AccessWebPro to ensure WCAG compliance.</p>
+              <h3 className="text-2xl font-bold mb-3 dark:text-white">Ready to get started?</h3>
+              <p className="text-gray-600 dark:text-gray-300">Join 5000+ businesses already using AccessWebPro to ensure WCAG compliance.</p>
             </div>
             <div className="flex gap-4">
               <Button 
                 id="demo" 
                 variant="outline"
-                className="rounded-full py-6 px-8 border-gray-200"
+                className="rounded-full py-6 px-8 border-gray-200 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700"
               >
                 See Demo
                 <PlayCircle className="ml-2 h-5 w-5" />
               </Button>
               <Button 
                 id="signup" 
-                className="bg-[#0fae96] hover:bg-[#0fae96]/90 rounded-full py-6 px-8 text-white"
+                className="bg-[#0fae96] hover:bg-[#0fae96]/90 dark:bg-[#0fae96] dark:hover:bg-[#0fae96]/80 rounded-full py-6 px-8 text-white"
               >
                 Start Free Trial
                 <ArrowRight className="ml-2 h-5 w-5" />
