@@ -4,6 +4,7 @@
   "secondary": "hsl(215, 100%, 50%)",
   "appearance": "system",
   "radius": 1.25,
+  "darkMode": true,
   "fontSize": {
     "xs": "0.75rem",
     "sm": "0.875rem",

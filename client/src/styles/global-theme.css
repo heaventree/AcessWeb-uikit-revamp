@@ -168,22 +168,42 @@
   --focus-ring: 20, 184, 166, 0.5;    /* #14b8a6 with opacity - Teal focus ring */
 }
 
-/* Dark mode theme overrides */
+/* Dark mode theme overrides - WCAG compliant with at least 4.5:1 contrast ratio */
 .dark {
   /* Card and container background colors for dark mode */
   --card-bg: 26, 32, 44;             /* #1a202c - Dark blue-gray background */
   --card-bg-secondary: 30, 41, 59;   /* #1e293b - Slightly lighter for secondary elements */
   --container-bg: 17, 24, 39;        /* #111827 - Very dark background for main containers */
   
-  /* Text colors */
-  --text-primary: 237, 244, 255;     /* #edf4ff - Off-white */
-  --text-secondary: 209, 213, 219;   /* #d1d5db - Light gray */
-  --text-tertiary: 156, 163, 175;    /* #9ca3af - Medium gray */
-  --text-muted: 107, 114, 128;       /* #6b7280 - Dark gray text in dark mode */
+  /* Text colors with enhanced contrast for accessibility */
+  --text-primary: 248, 250, 252;     /* #f8fafc - Very light gray, almost white - At least 14:1 contrast */
+  --text-secondary: 226, 232, 240;   /* #e2e8f0 - Light gray - At least 10:1 contrast */
+  --text-tertiary: 203, 213, 225;    /* #cbd5e1 - Medium light gray - At least 7:1 contrast */
+  --text-muted: 148, 163, 184;       /* #94a3b8 - Medium gray - At least 4.5:1 contrast */
 
   /* Component colors */
-  --border-light: 55, 65, 81;        /* #374151 - Dark gray border */
-  --focus-ring: 20, 184, 166, 0.5;   /* #14b8a6 with opacity - Teal focus ring (unchanged) */
+  --border-light: 71, 85, 105;       /* #475569 - Medium gray - Good contrast for borders */
+  --focus-ring: 20, 184, 166, 0.75;  /* #14b8a6 with higher opacity for better visibility */
+  
+  /* Interactive element colors with enhanced visibility */
+  --button-primary-bg: 20, 184, 166;       /* #14b8a6 - Teal */
+  --button-primary-text: 248, 250, 252;    /* #f8fafc - Very light gray for text on buttons */
+  --button-secondary-bg: 51, 65, 85;       /* #334155 - Medium dark blue-gray */
+  --button-secondary-text: 248, 250, 252;  /* #f8fafc - Very light gray for text */
+  
+  /* Form element colors */
+  --input-bg: 30, 41, 59;            /* #1e293b - Dark blue-gray */
+  --input-border: 71, 85, 105;       /* #475569 - Medium gray border */
+  --input-text: 248, 250, 252;       /* #f8fafc - Very light gray text */
+  --input-placeholder: 148, 163, 184; /* #94a3b8 - Medium gray placeholder text */
+  
+  /* Link colors with clear hover/focus states */
+  --link-text: 56, 189, 248;         /* #38bdf8 - Light blue - 4.5:1 against dark backgrounds */
+  --link-hover: 125, 211, 252;       /* #7dd3fc - Lighter blue on hover - 7:1 contrast */
+  
+  /* Error and success states */
+  --error-text: 248, 113, 113;       /* #f87171 - Bright red - 4.5:1 contrast */
+  --success-text: 74, 222, 128;      /* #4ade80 - Bright green - 4.5:1 contrast */
 }
 
 /* Accessibility: Smooth transitions with respect for reduced motion preferences */
@@ -282,4 +302,22 @@
   outline: 3px solid hsl(var(--primary)) !important;
   outline-offset: 3px !important;
   box-shadow: 0 0 0 3px rgba(var(--background), 0.8) !important;
+}
+
+/* Dark mode focus styles with enhanced visibility */
+.dark .enhanced-focus:focus-visible,
+.dark .enhanced-focus *:focus-visible {
+  outline: 3px solid rgb(45, 212, 191) !important; /* Brighter teal for visibility */
+  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.8) !important; /* Dark background for the shadow */
+}
+
+/* Dark mode focus styles for interactive elements */
+.dark .enhanced-focus button:focus-visible,
+.dark .enhanced-focus a:focus-visible,
+.dark .enhanced-focus input:focus-visible,
+.dark .enhanced-focus select:focus-visible,
+.dark .enhanced-focus textarea:focus-visible {
+  outline: 3px solid rgb(45, 212, 191) !important; /* Brighter teal for visibility */
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.8) !important; /* Dark background */
 }

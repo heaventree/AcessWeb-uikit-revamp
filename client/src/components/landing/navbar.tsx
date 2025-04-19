@@ -78,13 +78,13 @@ export default function Navbar() {
   ];
 
   return (
-    <header className={`fixed w-full bg-background/95 backdrop-blur-sm z-50 ${scrolled ? 'shadow-sm' : ''} transition-shadow duration-300`}>
+    <header className={`fixed w-full bg-background/95 dark:bg-background/95 backdrop-blur-sm z-50 ${scrolled ? 'shadow-sm' : ''} transition-shadow duration-300`}>
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-1">
-          <div className="w-10 h-10 rounded-xl bg-[#e0f5f1] flex items-center justify-center mr-1">
-            <CheckCircle className="w-5 h-5 text-[#0fae96]" />
+          <div className="w-10 h-10 rounded-xl bg-[#e0f5f1] dark:bg-[#0fae96]/20 flex items-center justify-center mr-1">
+            <CheckCircle className="w-5 h-5 text-[#0fae96] dark:text-[#5eead4]" />
           </div>
-          <span className="text-xl font-bold text-foreground">AccessWeb<span className="text-[#0fae96]">Pro</span></span>
+          <span className="text-xl font-bold text-foreground dark:text-foreground">AccessWeb<span className="text-[#0fae96] dark:text-[#5eead4]">Pro</span></span>
         </div>
         
         {/* Desktop Navigation */}
@@ -105,7 +105,7 @@ export default function Navbar() {
             Login
           </a>
           <Button 
-            className="bg-[#0fae96] hover:bg-[#0fae96]/90 transition-all duration-300 rounded-full px-6 text-white"
+            className="bg-[#0fae96] hover:bg-[#0fae96]/90 dark:bg-[#0fae96] dark:hover:bg-[#0fae96]/80 transition-all duration-300 rounded-full px-6 text-white"
           >
             Start Free Trial <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
@@ -171,7 +171,7 @@ export default function Navbar() {
                 </button>
               </div>
               <Button 
-                className="w-full mt-3 bg-[#0fae96] hover:bg-[#0fae96]/90 transition-all duration-300 rounded-full px-6 text-white"
+                className="w-full mt-3 bg-[#0fae96] hover:bg-[#0fae96]/90 dark:bg-[#0fae96] dark:hover:bg-[#0fae96]/80 transition-all duration-300 rounded-full px-6 text-white"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Start Free Trial <ArrowRight className="ml-2 h-4 w-4" />
