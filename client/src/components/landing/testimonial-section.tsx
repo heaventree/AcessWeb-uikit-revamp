@@ -28,18 +28,18 @@ function TestimonialCard({ image, name, role, company, content, stat, statLabel,
       transition={{ duration: 0.5, delay }}
       className="h-full"
     >
-      <Card className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 h-full flex flex-col">
-        <div className="mb-6 text-[#0fae96]">
+      <Card className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-gray-700 h-full flex flex-col">
+        <div className="mb-6 text-[#0fae96] dark:text-[#5eead4]">
           <Quote className="h-8 w-8 rotate-180 opacity-30" />
         </div>
         
-        <p className="text-gray-700 text-lg mb-8 flex-grow">{content}</p>
+        <p className="text-gray-700 dark:text-gray-300 text-lg mb-8 flex-grow">{content}</p>
         
         {stat && (
-          <div className="mb-6 p-4 bg-gray-50 rounded-xl">
+          <div className="mb-6 p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl">
             <div className="flex items-center">
-              <div className="text-2xl font-bold text-[#0fae96]">{stat}</div>
-              <div className="ml-2 text-sm text-gray-600">{statLabel}</div>
+              <div className="text-2xl font-bold text-[#0fae96] dark:text-[#5eead4]">{stat}</div>
+              <div className="ml-2 text-sm text-gray-600 dark:text-gray-400">{statLabel}</div>
             </div>
           </div>
         )}
@@ -51,8 +51,8 @@ function TestimonialCard({ image, name, role, company, content, stat, statLabel,
             className="w-12 h-12 rounded-full object-cover mr-4"
           />
           <div>
-            <h4 className="font-semibold">{name}</h4>
-            <p className="text-sm text-gray-600">{role}, {company}</p>
+            <h4 className="font-semibold dark:text-white">{name}</h4>
+            <p className="text-sm text-gray-600 dark:text-gray-400">{role}, {company}</p>
           </div>
         </div>
       </Card>
@@ -103,7 +103,7 @@ export default function TestimonialSection() {
   ];
 
   return (
-    <section id="testimonials" className="py-24 md:py-32 bg-[#f9fdff]">
+    <section id="testimonials" className="py-24 md:py-32 bg-[#f9fdff] dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <motion.div 
           ref={ref}
@@ -112,11 +112,11 @@ export default function TestimonialSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <Badge variant="outline" className="bg-[#e0f5f1] text-[#0fae96] border-0 rounded-full px-4 py-1 mb-6">
+          <Badge variant="outline" className="bg-[#e0f5f1] dark:bg-[#0fae96]/20 text-[#0fae96] dark:text-[#5eead4] border-0 rounded-full px-4 py-1 mb-6">
             Success stories from real users
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Trusted by Industry Leaders</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 dark:text-white">Trusted by Industry Leaders</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             See how AccessWebPro has helped companies achieve WCAG compliance and improve user experiences
           </p>
         </motion.div>
@@ -142,28 +142,28 @@ export default function TestimonialSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
-          className="max-w-4xl mx-auto bg-white rounded-2xl p-10 shadow-sm border border-gray-100"
+          className="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-2xl p-10 shadow-sm border border-gray-100 dark:border-gray-700"
         >
           <div className="text-center mb-10">
-            <h3 className="text-2xl font-bold mb-2">Why businesses choose AccessWebPro</h3>
-            <p className="text-gray-600">Our platform delivers measurable results</p>
+            <h3 className="text-2xl font-bold mb-2 dark:text-white">Why businesses choose AccessWebPro</h3>
+            <p className="text-gray-600 dark:text-gray-300">Our platform delivers measurable results</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl font-extrabold text-gray-900 mb-2">{stat.value}</div>
-                <div className="text-gray-600">{stat.label}</div>
+                <div className="text-4xl font-extrabold text-gray-900 dark:text-white mb-2">{stat.value}</div>
+                <div className="text-gray-600 dark:text-gray-400">{stat.label}</div>
               </div>
             ))}
           </div>
           
-          <div className="mt-12 pt-8 border-t border-gray-100 grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-between">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="h-5 mx-auto opacity-60" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft" className="h-5 mx-auto opacity-60" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" className="h-5 mx-auto opacity-60" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" className="h-5 mx-auto opacity-60" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" className="h-5 mx-auto opacity-60" />
+          <div className="mt-12 pt-8 border-t border-gray-100 dark:border-gray-700 grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-between">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="h-5 mx-auto opacity-60 dark:invert dark:opacity-50" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft" className="h-5 mx-auto opacity-60 dark:invert dark:opacity-50" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" className="h-5 mx-auto opacity-60 dark:invert dark:opacity-50" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" className="h-5 mx-auto opacity-60 dark:opacity-80" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" className="h-5 mx-auto opacity-60 dark:invert dark:opacity-50" />
           </div>
         </motion.div>
       </div>
