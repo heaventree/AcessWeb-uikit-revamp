@@ -24,7 +24,7 @@ function FAQItem({ question, answer, value }: FAQItemProps) {
     <AccordionItem value={value} className="border-0 mb-4">
       <AccordionTrigger 
         onClick={() => setIsOpen(!isOpen)}
-        className="text-left font-semibold hover:no-underline bg-white dark:bg-gray-800 rounded-xl py-5 px-6 shadow-sm border border-gray-100 dark:border-gray-700 flex justify-between data-[state=open]:rounded-b-none dark:text-white"
+        className="text-left font-semibold hover:no-underline bg-white dark:bg-gray-800 rounded-xl py-5 px-6 shadow-sm border border-gray-100 dark:border-gray-700 data-[state=open]:rounded-b-none dark:text-white [&>svg]:hidden"
       >
         <span>{question}</span>
         <div className="shrink-0 ml-4">
