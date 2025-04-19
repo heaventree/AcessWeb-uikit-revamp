@@ -21,17 +21,17 @@
     --secondary: 215, 100%, 50%;
     --secondary-foreground: 0, 0%, 100%;
     
-    --muted: 229, 231, 235;
-    --muted-foreground: 107, 114, 128;
+    --muted: 220, 14%, 96%;
+    --muted-foreground: 215, 16%, 47%;
     
-    --accent: 219, 234, 254;
-    --accent-foreground: 30, 64, 175;
+    --accent: 214, 95%, 93%;
+    --accent-foreground: 224, 76%, 48%;
     
     --destructive: 0, 84%, 60%;
     --destructive-foreground: 0, 0%, 100%;
     
-    --border: 229, 231, 235;
-    --input: 229, 231, 235;
+    --border: 220, 13%, 91%;
+    --input: 220, 13%, 91%;
     --ring: 171, 80%, 40%;
     
     --radius: 0.75rem;
@@ -44,13 +44,13 @@
     --chart-5: 215, 100%, 50%;
     
     /* Sidebar colors */
-    --sidebar-background: 245, 247, 250;
-    --sidebar-foreground: 17, 24, 39;
+    --sidebar-background: 210, 40%, 98%;
+    --sidebar-foreground: 222, 47%, 11%;
     --sidebar-primary: 171, 80%, 40%;
     --sidebar-primary-foreground: 0, 0%, 100%;
-    --sidebar-accent: 219, 234, 254;
-    --sidebar-accent-foreground: 30, 64, 175;
-    --sidebar-border: 229, 231, 235;
+    --sidebar-accent: 214, 95%, 93%;
+    --sidebar-accent-foreground: 224, 76%, 48%;
+    --sidebar-border: 220, 13%, 91%;
     --sidebar-ring: 171, 80%, 40%;
   }
 
@@ -75,20 +75,20 @@
     --secondary-foreground: 0, 0%, 100%; /* Pure white text on secondary - Passes 4.5:1 contrast */
     
     /* Muted elements with proper contrast */
-    --muted: 51, 65, 85; /* #334155 - Medium dark blue-gray */
-    --muted-foreground: 226, 232, 240; /* #e2e8f0 - Light gray with 7:1 contrast */
+    --muted: 217, 33%, 27%; /* #334155 - Medium dark blue-gray */
+    --muted-foreground: 214, 32%, 91%; /* #e2e8f0 - Light gray with 7:1 contrast */
     
     /* Accent colors adjusted for dark theme */
-    --accent: 51, 65, 85; /* #334155 - Medium dark blue-gray */
-    --accent-foreground: 186, 230, 253; /* #bae6fd - Light blue with good contrast - 7:1 ratio */
+    --accent: 217, 33%, 27%; /* #334155 - Medium dark blue-gray */
+    --accent-foreground: 199, 89%, 86%; /* #bae6fd - Light blue with good contrast - 7:1 ratio */
     
     /* Destructive actions with accessible contrast */
     --destructive: 0, 90%, 60%; /* Brighter red for visibility */
     --destructive-foreground: 255, 255, 255; /* White text on destructive - 4.5:1 contrast */
     
     /* Border, input and focus ring colors */
-    --border: 71, 85, 105; /* #475569 - Medium gray-blue for borders */
-    --input: 71, 85, 105; /* #475569 - Same as border for inputs */
+    --border: 217, 19%, 35%; /* #475569 - Medium gray-blue for borders */
+    --input: 217, 19%, 35%; /* #475569 - Same as border for inputs */
     --ring: 171, 80%, 55%; /* Even brighter teal for focus states in dark mode for 3:1 contrast */
     
     /* Chart colors for dark mode - Brighter for visibility with consistent contrast ratios (all minimum 3:1) */
@@ -99,13 +99,13 @@
     --chart-5: 215, 100%, 65%; /* Brighter royal blue - 3:1 contrast */
     
     /* Sidebar colors with consistent dark theme styling */
-    --sidebar-background: 30, 41, 59; /* #1e293b - Same as card */
-    --sidebar-foreground: 248, 250, 252; /* #f8fafc - Very light gray - 14:1 contrast ratio */
+    --sidebar-background: 222, 47%, 17%; /* #1e293b - Same as card */
+    --sidebar-foreground: 210, 40%, 98%; /* #f8fafc - Very light gray - 14:1 contrast ratio */
     --sidebar-primary: 171, 80%, 50%; /* Brighter teal for visibility - 3:1 UI contrast */
     --sidebar-primary-foreground: 0, 0%, 100%; /* White text - 4.5:1 contrast ratio */
-    --sidebar-accent: 51, 65, 85; /* #334155 - Medium dark blue-gray */
-    --sidebar-accent-foreground: 186, 230, 253; /* #bae6fd - Light blue - 7:1 contrast ratio */
-    --sidebar-border: 71, 85, 105; /* #475569 - Medium gray-blue - 3:1 contrast against background */
+    --sidebar-accent: 217, 33%, 27%; /* #334155 - Medium dark blue-gray */
+    --sidebar-accent-foreground: 199, 89%, 86%; /* #bae6fd - Light blue - 7:1 contrast ratio */
+    --sidebar-border: 217, 19%, 35%; /* #475569 - Medium gray-blue - 3:1 contrast against background */
     --sidebar-ring: 171, 80%, 55%; /* Brighter teal for focus - 3:1 contrast for UI elements */
   }
 
