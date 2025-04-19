@@ -225,17 +225,31 @@
 
 /* ====== WCAG Accessibility Features ====== */
 
-/* WCAG 1.4.4 - Resize Text */
+/* WCAG 1.4.4 - Resize Text 
+ * 
+ * Ensure these sizes meet WCAG AA standards:
+ * - Body text should be at least 16px (1rem)
+ * - Text must be resizable up to 200% without loss of content
+ * - Line height should be at least 1.5 for readability
+ */
 .font-size-normal {
-  font-size: 1rem;
+  font-size: 1rem; /* 16px base font size */
+  line-height: 1.5;
 }
 
 .font-size-large {
-  font-size: 1.25rem;
+  font-size: 1.25rem; /* 20px - 125% of normal */
+  line-height: 1.5;
 }
 
 .font-size-x-large {
-  font-size: 1.5rem;
+  font-size: 1.5rem; /* 24px - 150% of normal */
+  line-height: 1.5;
+}
+
+.font-size-xx-large {
+  font-size: 2rem; /* 32px - 200% of normal */
+  line-height: 1.4;
 }
 
 /* WCAG 1.4.3 - Contrast (Minimum) */
@@ -259,7 +273,14 @@
   /* Default animation behavior */
 }
 
-/* WCAG 1.4.12 - Text Spacing */
+/* WCAG 1.4.12 - Text Spacing 
+ *
+ * Requirements for text spacing:
+ * - Line height (line spacing) to at least 1.5 times the font size
+ * - Spacing following paragraphs to at least 2 times the font size
+ * - Letter spacing (tracking) to at least 0.12 times the font size
+ * - Word spacing to at least 0.16 times the font size
+ */
 .text-spacing-increased {
   line-height: 1.5 !important;
   letter-spacing: 0.12em !important;
@@ -277,6 +298,21 @@
 .text-spacing-increased button {
   margin-bottom: 2em !important;
   line-height: 1.5 !important;
+}
+
+/* Additional text spacing adjustments for specific elements */
+.text-spacing-increased p + p {
+  margin-top: 2em !important; /* Ensures proper paragraph spacing */
+}
+
+.text-spacing-increased ul,
+.text-spacing-increased ol {
+  margin: 1em 0 !important;
+  padding-left: 2em !important; /* Improved list readability */
+}
+
+.text-spacing-increased li + li {
+  margin-top: 0.5em !important; /* Space between list items */
 }
 
 .text-spacing-default {

@@ -9,7 +9,7 @@ import { Separator } from '@/components/ui/separator';
 import { WCAGBadge } from './WCAGBadge';
 
 // Font size options per WCAG 1.4.4 (Resize text)
-type FontSizeOption = 'normal' | 'large' | 'x-large';
+type FontSizeOption = 'normal' | 'large' | 'x-large' | 'xx-large';
 // Contrast modes per WCAG 1.4.3/1.4.6 (Contrast)
 type ContrastMode = 'normal' | 'high';
 // Motion reduction per WCAG 2.3.3 (Animation from Interactions)
@@ -34,7 +34,7 @@ export function WCAGToolbar() {
   // Apply settings to document when they change
   useEffect(() => {
     // Apply font size
-    document.documentElement.classList.remove('font-size-normal', 'font-size-large', 'font-size-x-large');
+    document.documentElement.classList.remove('font-size-normal', 'font-size-large', 'font-size-x-large', 'font-size-xx-large');
     document.documentElement.classList.add(`font-size-${fontSize}`);
     
     // Apply contrast mode
@@ -100,11 +100,13 @@ export function WCAGToolbar() {
   const increaseFontSize = () => {
     if (fontSize === 'normal') setFontSize('large');
     else if (fontSize === 'large') setFontSize('x-large');
+    else if (fontSize === 'x-large') setFontSize('xx-large');
   };
   
   // Decrease font size
   const decreaseFontSize = () => {
-    if (fontSize === 'x-large') setFontSize('large');
+    if (fontSize === 'xx-large') setFontSize('x-large');
+    else if (fontSize === 'x-large') setFontSize('large');
     else if (fontSize === 'large') setFontSize('normal');
   };
   
@@ -240,14 +242,16 @@ export function WCAGToolbar() {
                     <ZoomOut className="h-3.5 w-3.5" />
                   </Button>
                   <span className="text-xs w-16 text-center">
-                    {fontSize === 'normal' ? 'Normal' : fontSize === 'large' ? 'Large' : 'Extra Large'}
+                    {fontSize === 'normal' ? 'Normal' : 
+                     fontSize === 'large' ? 'Large' : 
+                     fontSize === 'x-large' ? 'Extra Large' : '2x Large'}
                   </span>
                   <Button
                     variant="outline"
                     size="sm"
                     className="h-7 w-7 p-0"
                     onClick={increaseFontSize}
-                    disabled={fontSize === 'x-large'}
+                    disabled={fontSize === 'xx-large'}
                     aria-label="Increase text size"
                   >
                     <ZoomIn className="h-3.5 w-3.5" />
