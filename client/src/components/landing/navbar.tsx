@@ -10,6 +10,8 @@ import {
   Sun,
   Moon
 } from "lucide-react";
+import NavDropdown from "./navbar-dropdown";
+import NavigationIcons from "../navigation/NavigationIconGuide";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -94,6 +96,56 @@ export default function Navbar() {
     };
   }, []);
 
+  // Tools dropdown items
+  const toolsDropdownItems = [
+    { 
+      icon: NavigationIcons.tools.wcagChecker, 
+      label: 'WCAG Checker',
+      description: 'Test your website against WCAG standards',
+      href: '/tools/wcag-checker'
+    },
+    { 
+      icon: NavigationIcons.tools.colorPalette, 
+      label: 'Color Palette',
+      description: 'Create accessible color combinations',
+      href: '/tools/color-palette'
+    },
+    { 
+      icon: NavigationIcons.tools.colorSimulator, 
+      label: 'Color Accessibility Simulator',
+      description: 'Test colors for accessibility',
+      href: '/tools/color-simulator'
+    },
+    { 
+      icon: NavigationIcons.tools.wcagStandards, 
+      label: 'WCAG Standards',
+      description: 'Browse WCAG 2.1 standards',
+      href: '/tools/wcag-standards'
+    }
+  ];
+
+  // Resources dropdown items
+  const resourcesDropdownItems = [
+    { 
+      icon: NavigationIcons.resources.documentation, 
+      label: 'Documentation',
+      description: 'Technical guides and API docs',
+      href: '/resources/documentation'
+    },
+    { 
+      icon: NavigationIcons.resources.helpCenter, 
+      label: 'Help Center',
+      description: 'FAQs and troubleshooting',
+      href: '/resources/help-center'
+    },
+    { 
+      icon: NavigationIcons.resources.blog, 
+      label: 'Blog',
+      description: 'Articles and accessibility updates',
+      href: '/resources/blog'
+    }
+  ];
+
   const navItems = [
     { label: "Features", href: "#features" },
     { label: "How It Works", href: "#how-it-works" },
@@ -112,7 +164,14 @@ export default function Navbar() {
         </div>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-10">
+        <nav className="hidden md:flex items-center space-x-8">
+          {/* Tools Dropdown */}
+          <NavDropdown label="Tools" items={toolsDropdownItems} />
+          
+          {/* Resources Dropdown */}
+          <NavDropdown label="Resources" items={resourcesDropdownItems} />
+          
+          {/* Regular nav items */}
           {navItems.map((item, index) => (
             <a 
               key={index}
@@ -171,6 +230,37 @@ export default function Navbar() {
             role="navigation"
             aria-label="Mobile navigation"
           >
+            {/* Tools Section */}
+            <div className="py-2 mb-2">
+              <h3 className="font-medium text-base mb-2">Tools</h3>
+              {toolsDropdownItems.map((item, index) => (
+                <Link key={index} href={item.href}>
+                  <a className="block py-2 pl-3 text-muted-foreground hover:text-foreground" onClick={() => setIsMenuOpen(false)}>
+                    <div className="flex items-center">
+                      <item.icon className="h-4 w-4 mr-2 text-primary" />
+                      <span>{item.label}</span>
+                    </div>
+                  </a>
+                </Link>
+              ))}
+            </div>
+            
+            {/* Resources Section */}
+            <div className="py-2 mb-2">
+              <h3 className="font-medium text-base mb-2">Resources</h3>
+              {resourcesDropdownItems.map((item, index) => (
+                <Link key={index} href={item.href}>
+                  <a className="block py-2 pl-3 text-muted-foreground hover:text-foreground" onClick={() => setIsMenuOpen(false)}>
+                    <div className="flex items-center">
+                      <item.icon className="h-4 w-4 mr-2 text-primary" />
+                      <span>{item.label}</span>
+                    </div>
+                  </a>
+                </Link>
+              ))}
+            </div>
+            
+            {/* Regular Nav Items */}
             {navItems.map((item, index) => (
               <a 
                 key={index}
