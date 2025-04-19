@@ -48,7 +48,7 @@ export default function Footer() {
                 </div>
                 <span className="text-lg font-bold text-gray-900 dark:text-white">AccessWeb<span className="text-[#0fae96] dark:text-[#5eead4]">Pro</span></span>
               </div>
-              <p className="text-gray-600 dark:text-gray-400 mb-6 text-sm">
+              <p className="text-gray-600 dark:text-gray-400 mb-6 text-base">
                 Making web accessibility compliance simple, automated, and accessible for organizations of all sizes.
               </p>
               <div className="flex space-x-4">
