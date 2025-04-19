@@ -51,18 +51,18 @@ export default function Footer() {
               <p className="text-gray-600 dark:text-gray-400 mb-6 text-base">
                 Making web accessibility compliance simple, automated, and accessible for organizations of all sizes.
               </p>
-              <div className="flex space-x-4">
-                <a href="#" className="w-8 h-8 rounded-full bg-[#f4f7fa] dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-[#0fae96] hover:text-white transition-colors">
+              <div className="flex space-x-6">
+                <a href="#" className="w-10 h-10 rounded-full bg-[#f4f7fa] dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-[#0fae96] hover:text-white transition-colors">
                   <Twitter size={18} />
                 </a>
-                <a href="#" className="w-8 h-8 rounded-full bg-[#f4f7fa] dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-[#0fae96] hover:text-white transition-colors">
+                <a href="#" className="w-10 h-10 rounded-full bg-[#f4f7fa] dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-[#0fae96] hover:text-white transition-colors">
                   <Linkedin size={18} />
                 </a>
-                <a href="#" className="w-8 h-8 rounded-full bg-[#f4f7fa] dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-[#0fae96] hover:text-white transition-colors">
+                <a href="#" className="w-10 h-10 rounded-full bg-[#f4f7fa] dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-[#0fae96] hover:text-white transition-colors">
                   <Facebook size={18} />
                 </a>
-                <a href="#" className="w-8 h-8 rounded-full bg-[#f4f7fa] dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-[#0fae96] hover:text-white transition-colors">
-                  <Github size={16} />
+                <a href="#" className="w-10 h-10 rounded-full bg-[#f4f7fa] dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-[#0fae96] hover:text-white transition-colors">
+                  <Github size={18} />
                 </a>
               </div>
             </div>
