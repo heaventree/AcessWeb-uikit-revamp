@@ -30,10 +30,10 @@ function FAQItem({ question, answer, value }: FAQItemProps) {
         <div className="shrink-0 ml-4">
           {isOpen ? 
             <div className="w-6 h-6 rounded-full bg-[#e0f5f1] dark:bg-[#0fae96]/20 flex items-center justify-center">
-              <Minus className="h-3 w-3 text-[#0fae96] dark:text-[#5eead4]" />
+              <Minus className="h-4 w-4 text-[#0fae96] dark:text-[#5eead4]" />
             </div> : 
             <div className="w-6 h-6 rounded-full bg-[#e0f5f1] dark:bg-[#0fae96]/20 flex items-center justify-center">
-              <Plus className="h-3 w-3 text-[#0fae96] dark:text-[#5eead4]" />
+              <Plus className="h-4 w-4 text-[#0fae96] dark:text-[#5eead4]" />
             </div>
           }
         </div>

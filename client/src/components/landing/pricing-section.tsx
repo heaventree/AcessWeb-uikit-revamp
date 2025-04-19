@@ -47,7 +47,7 @@ function PricingPlan({
       className={`bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-sm border ${isPopular ? 'border-[#0fae96] dark:border-[#5eead4] shadow-lg relative' : 'border-gray-100 dark:border-gray-700'} flex flex-col h-full`}
     >
       {isPopular && (
-        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#0fae96] dark:bg-[#0fae96] text-white px-5 py-1.5 rounded-full text-sm font-medium">
+        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#0fae96] dark:bg-[#0fae96] text-white px-5 py-1.5 rounded-full text-base font-medium">
           Most Popular
         </div>
       )}
@@ -64,7 +64,7 @@ function PricingPlan({
       </div>
       
       <div className="mb-8 flex-grow">
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 font-medium">INCLUDES:</p>
+        <p className="text-base text-gray-500 dark:text-gray-400 mb-4 font-medium">INCLUDES:</p>
         <ul className="space-y-4">
           {features.map((feature, index) => (
             <li key={index} className="flex items-start">
