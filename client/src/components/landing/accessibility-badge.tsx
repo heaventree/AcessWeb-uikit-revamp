@@ -6,7 +6,11 @@ import {
   Minimize2,
   Type,
   Contrast,
-  MousePointer
+  MousePointer,
+  Moon,
+  Volume2,
+  X,
+  ZoomIn
 } from "lucide-react";
 
 export default function AccessibilityBadge() {
@@ -20,51 +24,76 @@ export default function AccessibilityBadge() {
             initial={{ opacity: 0, y: 10, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.9 }}
-            className="bg-white shadow-lg rounded-lg p-4 mb-4 border border-gray-200 w-64"
+            className="bg-white shadow-xl rounded-2xl p-5 mb-4 border border-gray-100 w-72"
           >
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="font-semibold text-gray-900">Accessibility Tools</h3>
+            <div className="flex justify-between items-center mb-5">
+              <div className="flex items-center">
+                <div className="w-8 h-8 rounded-full bg-[#e0f5f1] flex items-center justify-center mr-2">
+                  <Accessibility className="h-4 w-4 text-[#0fae96]" />
+                </div>
+                <h3 className="font-bold text-gray-900">Accessibility Tools</h3>
+              </div>
               <Button 
                 variant="ghost" 
                 size="icon" 
-                className="h-8 w-8" 
+                className="h-8 w-8 rounded-full hover:bg-gray-100" 
                 onClick={() => setIsOpen(false)}
               >
-                <Minimize2 className="h-4 w-4" />
+                <X className="h-4 w-4" />
               </Button>
             </div>
             
-            <div className="space-y-3">
+            <div className="space-y-3 mb-2">
               <Button 
                 variant="outline" 
-                className="w-full justify-start text-gray-700"
+                className="w-full justify-start text-gray-700 rounded-xl py-5 px-4 hover:border-[#0fae96] hover:text-[#0fae96]"
               >
-                <Type className="h-4 w-4 mr-2" />
+                <ZoomIn className="h-4 w-4 mr-3" />
                 Increase Font Size
               </Button>
               
               <Button 
                 variant="outline" 
-                className="w-full justify-start text-gray-700"
+                className="w-full justify-start text-gray-700 rounded-xl py-5 px-4 hover:border-[#0fae96] hover:text-[#0fae96]"
               >
-                <Contrast className="h-4 w-4 mr-2" />
-                High Contrast
+                <Contrast className="h-4 w-4 mr-3" />
+                High Contrast Mode
               </Button>
               
               <Button 
                 variant="outline" 
-                className="w-full justify-start text-gray-700"
+                className="w-full justify-start text-gray-700 rounded-xl py-5 px-4 hover:border-[#0fae96] hover:text-[#0fae96]"
               >
-                <MousePointer className="h-4 w-4 mr-2" />
-                Highlight Links
+                <MousePointer className="h-4 w-4 mr-3" />
+                Highlight Interactive Elements
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                className="w-full justify-start text-gray-700 rounded-xl py-5 px-4 hover:border-[#0fae96] hover:text-[#0fae96]"
+              >
+                <Volume2 className="h-4 w-4 mr-3" />
+                Screen Reader Support
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                className="w-full justify-start text-gray-700 rounded-xl py-5 px-4 hover:border-[#0fae96] hover:text-[#0fae96]"
+              >
+                <Moon className="h-4 w-4 mr-3" />
+                Reduce Motion
               </Button>
             </div>
+            
+            <p className="text-xs text-gray-500 mt-4 text-center">
+              AccessWebPro provides these tools as part of our commitment to digital accessibility.
+            </p>
           </motion.div>
         )}
       </AnimatePresence>
       
       <motion.button
-        className="bg-primary hover:bg-primary/90 text-white p-3 rounded-full shadow-lg"
+        className="bg-[#0fae96] hover:bg-[#0fae96]/90 text-white p-4 rounded-full shadow-lg"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
