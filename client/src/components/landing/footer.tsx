@@ -53,13 +53,13 @@ export default function Footer() {
               </p>
               <div className="flex space-x-4">
                 <a href="#" className="w-8 h-8 rounded-full bg-[#f4f7fa] dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-[#0fae96] hover:text-white transition-colors">
-                  <Twitter size={16} />
+                  <Twitter size={18} />
                 </a>
                 <a href="#" className="w-8 h-8 rounded-full bg-[#f4f7fa] dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-[#0fae96] hover:text-white transition-colors">
-                  <Linkedin size={16} />
+                  <Linkedin size={18} />
                 </a>
                 <a href="#" className="w-8 h-8 rounded-full bg-[#f4f7fa] dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-[#0fae96] hover:text-white transition-colors">
-                  <Facebook size={16} />
+                  <Facebook size={18} />
                 </a>
                 <a href="#" className="w-8 h-8 rounded-full bg-[#f4f7fa] dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-[#0fae96] hover:text-white transition-colors">
                   <Github size={16} />
