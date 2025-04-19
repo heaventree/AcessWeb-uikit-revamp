@@ -1,4 +1,4 @@
-import Navbar from "@/components/landing/navbar";
+import { MainNavigation } from "@/components/navigation/MainNavigation";
 import HeroSection from "@/components/landing/hero-section";
 import StatSection from "@/components/landing/stat-section";
 import FeatureSection from "@/components/landing/feature-section";
@@ -68,7 +68,7 @@ export default function Home() {
 
   return (
     <div className="relative">
-      <Navbar />
+      <MainNavigation />
       <main>
         <HeroSection onTrialSignup={handleTrialSignup} isSubmitting={isTrialSubmitting} />
         <StatSection />

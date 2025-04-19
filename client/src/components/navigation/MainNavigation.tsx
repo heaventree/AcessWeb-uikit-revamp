@@ -126,7 +126,7 @@ export function MainNavigation() {
   };
 
   // Handle dropdown clicks
-  const handleDropdownClick = (dropdown: string) => {
+  const handleDropdownClick = (dropdown: string | null) => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
   };
 
@@ -382,18 +382,15 @@ export function MainNavigation() {
                         key={tool.path}
                         href={tool.path}
                         onClick={() => setActiveDropdown(null)}
+                        className="flex items-center px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+                        role="menuitem"
+                        tabIndex={0}
                       >
-                        <a 
-                          className="flex items-center px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
-                          role="menuitem"
-                          tabIndex={0}
-                        >
-                          <tool.icon className="w-5 h-5 mr-3 text-[#0fae96] dark:text-[#5eead4]" />
-                          <div>
-                            <div className="font-medium">{tool.name}</div>
-                            <div className="text-xs text-gray-500 dark:text-gray-400">{tool.description}</div>
-                          </div>
-                        </a>
+                        <tool.icon className="w-5 h-5 mr-3 text-[#0fae96] dark:text-[#5eead4]" />
+                        <div>
+                          <div className="font-medium">{tool.name}</div>
+                          <div className="text-xs text-gray-500 dark:text-gray-400">{tool.description}</div>
+                        </div>
                       </Link>
                     ))}
                   </motion.div>
@@ -430,18 +427,15 @@ export function MainNavigation() {
                         key={integration.path}
                         href={integration.path}
                         onClick={() => setActiveDropdown(null)}
+                        className="flex items-center px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+                        role="menuitem"
+                        tabIndex={0}
                       >
-                        <a 
-                          className="flex items-center px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
-                          role="menuitem"
-                          tabIndex={0}
-                        >
-                          <integration.icon className="w-5 h-5 mr-3 text-[#0fae96] dark:text-[#5eead4]" />
-                          <div>
-                            <div className="font-medium">{integration.name}</div>
-                            <div className="text-xs text-gray-500 dark:text-gray-400">{integration.description}</div>
-                          </div>
-                        </a>
+                        <integration.icon className="w-5 h-5 mr-3 text-[#0fae96] dark:text-[#5eead4]" />
+                        <div>
+                          <div className="font-medium">{integration.name}</div>
+                          <div className="text-xs text-gray-500 dark:text-gray-400">{integration.description}</div>
+                        </div>
                       </Link>
                     ))}
                   </motion.div>
@@ -478,18 +472,15 @@ export function MainNavigation() {
                         key={resource.path}
                         href={resource.path}
                         onClick={() => setActiveDropdown(null)}
+                        className="flex items-center px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+                        role="menuitem"
+                        tabIndex={0}
                       >
-                        <a 
-                          className="flex items-center px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
-                          role="menuitem"
-                          tabIndex={0}
-                        >
-                          <resource.icon className="w-5 h-5 mr-3 text-[#0fae96] dark:text-[#5eead4]" />
-                          <div>
-                            <div className="font-medium">{resource.name}</div>
-                            <div className="text-xs text-gray-500 dark:text-gray-400">{resource.description}</div>
-                          </div>
-                        </a>
+                        <resource.icon className="w-5 h-5 mr-3 text-[#0fae96] dark:text-[#5eead4]" />
+                        <div>
+                          <div className="font-medium">{resource.name}</div>
+                          <div className="text-xs text-gray-500 dark:text-gray-400">{resource.description}</div>
+                        </div>
                       </Link>
                     ))}
                   </motion.div>
@@ -530,18 +521,15 @@ export function MainNavigation() {
                         key={item.path}
                         href={item.path}
                         onClick={() => setActiveDropdown(null)}
+                        className="flex items-center px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+                        role="menuitem"
+                        tabIndex={0}
                       >
-                        <a 
-                          className="flex items-center px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
-                          role="menuitem"
-                          tabIndex={0}
-                        >
-                          <item.icon className="w-5 h-5 mr-3 text-[#0fae96] dark:text-[#5eead4]" />
-                          <div>
-                            <div className="font-medium">{item.name}</div>
-                            <div className="text-xs text-gray-500 dark:text-gray-400">{item.description}</div>
-                          </div>
-                        </a>
+                        <item.icon className="w-5 h-5 mr-3 text-[#0fae96] dark:text-[#5eead4]" />
+                        <div>
+                          <div className="font-medium">{item.name}</div>
+                          <div className="text-xs text-gray-500 dark:text-gray-400">{item.description}</div>
+                        </div>
                       </Link>
                     ))}
                   </motion.div>
