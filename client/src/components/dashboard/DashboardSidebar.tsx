@@ -8,7 +8,7 @@ import {
   Home,
   FileText,
   Users,
-  Tool,
+  Wrench,
   Zap,
   BookOpen,
   HelpCircle,
@@ -241,21 +241,21 @@ const DashboardSidebar = ({
             <NavItem
               path="/tools/wcag-color-palette"
               label="WCAG Color Palette"
-              icon={<Tool />}
+              icon={<Wrench />}
               isCollapsed={!isOpen && !isMobile}
               onClick={onClick}
             />
             <NavItem
               path="/tools/image-alt-scanner"
               label="Image Alt Scanner"
-              icon={<Tool />}
+              icon={<Wrench />}
               isCollapsed={!isOpen && !isMobile}
               onClick={onClick}
             />
             <NavItem
               path="/tools/color-simulator"
               label="Color Simulator"
-              icon={<Tool />}
+              icon={<Wrench />}
               isCollapsed={!isOpen && !isMobile}
               onClick={onClick}
             />
