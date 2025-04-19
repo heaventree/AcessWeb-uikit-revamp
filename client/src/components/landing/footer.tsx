@@ -69,7 +69,7 @@ export default function Footer() {
             
             <div>
               <h4 className="font-semibold text-gray-800 dark:text-white mb-5">Product</h4>
-              <ul className="space-y-3 text-gray-600 dark:text-gray-400 text-sm">
+              <ul className="space-y-3 text-gray-600 dark:text-gray-400 text-base">
                 <li><a href="#features" className="hover:text-[#0fae96] dark:hover:text-[#5eead4] transition-colors">Features</a></li>
                 <li><a href="#pricing" className="hover:text-[#0fae96] dark:hover:text-[#5eead4] transition-colors">Pricing</a></li>
                 <li><a href="#" className="hover:text-[#0fae96] dark:hover:text-[#5eead4] transition-colors">Documentation</a></li>
@@ -80,7 +80,7 @@ export default function Footer() {
             
             <div>
               <h4 className="font-semibold text-gray-800 dark:text-white mb-5">Resources</h4>
-              <ul className="space-y-3 text-gray-600 dark:text-gray-400 text-sm">
+              <ul className="space-y-3 text-gray-600 dark:text-gray-400 text-base">
                 <li><a href="#" className="hover:text-[#0fae96] dark:hover:text-[#5eead4] transition-colors">Blog</a></li>
                 <li><a href="#" className="hover:text-[#0fae96] dark:hover:text-[#5eead4] transition-colors">WCAG Guidelines</a></li>
                 <li><a href="#" className="hover:text-[#0fae96] dark:hover:text-[#5eead4] transition-colors">Accessibility Tools</a></li>
@@ -91,7 +91,7 @@ export default function Footer() {
             
             <div>
               <h4 className="font-semibold text-gray-800 dark:text-white mb-5">Company</h4>
-              <ul className="space-y-3 text-gray-600 dark:text-gray-400 text-sm">
+              <ul className="space-y-3 text-gray-600 dark:text-gray-400 text-base">
                 <li><a href="#" className="hover:text-[#0fae96] dark:hover:text-[#5eead4] transition-colors">About Us</a></li>
                 <li><a href="#" className="hover:text-[#0fae96] dark:hover:text-[#5eead4] transition-colors">Careers</a></li>
                 <li><a href="#" className="hover:text-[#0fae96] dark:hover:text-[#5eead4] transition-colors">Contact</a></li>
@@ -102,14 +102,14 @@ export default function Footer() {
           </div>
           
           <div className="border-t border-gray-200 dark:border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-500 dark:text-gray-400 text-sm mb-4 md:mb-0">
+            <p className="text-gray-500 dark:text-gray-400 text-base mb-4 md:mb-0">
               © {new Date().getFullYear()} AccessWebPro. All rights reserved.
             </p>
             <div className="flex flex-wrap gap-6">
-              <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-[#0fae96] dark:hover:text-[#5eead4] text-sm transition-colors">Privacy</a>
-              <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-[#0fae96] dark:hover:text-[#5eead4] text-sm transition-colors">Terms</a>
-              <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-[#0fae96] dark:hover:text-[#5eead4] text-sm transition-colors">Cookies</a>
-              <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-[#0fae96] dark:hover:text-[#5eead4] text-sm transition-colors">Accessibility Statement</a>
+              <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-[#0fae96] dark:hover:text-[#5eead4] text-base transition-colors">Privacy</a>
+              <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-[#0fae96] dark:hover:text-[#5eead4] text-base transition-colors">Terms</a>
+              <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-[#0fae96] dark:hover:text-[#5eead4] text-base transition-colors">Cookies</a>
+              <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-[#0fae96] dark:hover:text-[#5eead4] text-base transition-colors">Accessibility Statement</a>
             </div>
           </div>
         </div>
