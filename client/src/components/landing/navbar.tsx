@@ -6,12 +6,53 @@ import {
   Menu,
   X,
   CheckCircle,
-  ArrowRight
+  ArrowRight,
+  Sun,
+  Moon
 } from "lucide-react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return document.documentElement.classList.contains('dark');
+    }
+    return false;
+  });
+  
+  // Toggle dark mode function
+  const toggleTheme = () => {
+    const root = window.document.documentElement;
+    
+    if (root.classList.contains("dark")) {
+      root.classList.remove("dark");
+      root.classList.add("light");
+      localStorage.setItem("accessweb-theme", "light");
+      setDarkMode(false);
+    } else {
+      root.classList.remove("light");
+      root.classList.add("dark");
+      localStorage.setItem("accessweb-theme", "dark");
+      setDarkMode(true);
+    }
+  };
+  
+  // Effect to listen for theme changes
+  useEffect(() => {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          const isDark = document.documentElement.classList.contains('dark');
+          setDarkMode(isDark);
+        }
+      });
+    });
+    
+    observer.observe(document.documentElement, { attributes: true });
+    
+    return () => observer.disconnect();
+  }, []);
   
   // Handle scroll events to add shadow when scrolled
   useEffect(() => {
@@ -37,13 +78,13 @@ export default function Navbar() {
   ];
 
   return (
-    <header className={`fixed w-full bg-white/95 backdrop-blur-sm z-50 ${scrolled ? 'shadow-sm' : ''} transition-shadow duration-300`}>
+    <header className={`fixed w-full bg-background/95 backdrop-blur-sm z-50 ${scrolled ? 'shadow-sm' : ''} transition-shadow duration-300`}>
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-1">
           <div className="w-10 h-10 rounded-xl bg-[#e0f5f1] flex items-center justify-center mr-1">
             <CheckCircle className="w-5 h-5 text-[#0fae96]" />
           </div>
-          <span className="text-xl font-bold text-gray-900">AccessWeb<span className="text-[#0fae96]">Pro</span></span>
+          <span className="text-xl font-bold text-foreground">AccessWeb<span className="text-[#0fae96]">Pro</span></span>
         </div>
         
         {/* Desktop Navigation */}
@@ -52,7 +93,7 @@ export default function Navbar() {
             <a 
               key={index}
               href={item.href} 
-              className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
+              className="text-muted-foreground hover:text-foreground text-sm font-medium transition-colors"
             >
               {item.label}
             </a>
@@ -60,7 +101,7 @@ export default function Navbar() {
         </nav>
         
         <div className="flex items-center space-x-5">
-          <a href="#" className="hidden md:inline-block text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">
+          <a href="#" className="hidden md:inline-block text-muted-foreground hover:text-foreground text-sm font-medium transition-colors">
             Login
           </a>
           <Button 
@@ -68,6 +109,16 @@ export default function Navbar() {
           >
             Start Free Trial <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
+          
+          {/* Dark Mode Toggle Button */}
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-md hover:bg-accent text-muted-foreground hover:text-foreground transition-colors"
+            aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+          >
+            {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+          
           <Button
             variant="ghost"
             size="icon"
@@ -87,26 +138,38 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white border-t border-gray-100 px-4 py-4 overflow-hidden"
+            className="md:hidden bg-background border-t border-border px-4 py-4 overflow-hidden"
           >
             {navItems.map((item, index) => (
               <a 
                 key={index}
                 href={item.href} 
-                className="block py-3 text-gray-600 hover:text-[#0fae96] font-medium"
+                className="block py-3 text-muted-foreground hover:text-foreground font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
               </a>
             ))}
-            <div className="pt-3 mt-3 border-t border-gray-100">
-              <a 
-                href="#" 
-                className="block py-3 text-gray-600 hover:text-[#0fae96] font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Login
-              </a>
+            <div className="pt-3 mt-3 border-t border-border">
+              <div className="flex items-center justify-between py-3">
+                <a 
+                  href="#" 
+                  className="text-muted-foreground hover:text-foreground font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Login
+                </a>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleTheme();
+                  }}
+                  className="p-2 rounded-md hover:bg-accent text-muted-foreground hover:text-foreground transition-colors"
+                  aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+                >
+                  {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+                </button>
+              </div>
               <Button 
                 className="w-full mt-3 bg-[#0fae96] hover:bg-[#0fae96]/90 transition-all duration-300 rounded-full px-6 text-white"
                 onClick={() => setIsMenuOpen(false)}
