@@ -25,18 +25,18 @@ function StatCard({ value, label, delay }: StatProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5, delay }}
-      className="bg-white p-6 rounded-xl shadow-sm text-center group relative overflow-hidden"
+      className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm text-center group relative overflow-hidden border border-gray-100 dark:border-gray-700"
     >
-      <div className="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-primary to-indigo-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-      <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{value}</div>
-      <p className="text-gray-600">{label}</p>
+      <div className="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-primary to-indigo-500 dark:from-[#0fae96] dark:to-[#5eead4] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+      <div className="text-3xl md:text-4xl font-bold text-primary dark:text-[#5eead4] mb-2">{value}</div>
+      <p className="text-gray-600 dark:text-gray-300">{label}</p>
     </motion.div>
   );
 }
 
 export default function StatSection() {
   return (
-    <section className="py-12 md:py-20 bg-gradient-to-b from-white to-blue-50">
+    <section className="py-12 md:py-20 bg-gradient-to-b from-white dark:from-gray-900 to-blue-50 dark:to-gray-800">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           <StatCard value="99%" label="Accuracy Rate" delay={0} />
