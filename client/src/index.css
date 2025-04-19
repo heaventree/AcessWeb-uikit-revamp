@@ -1,13 +1,121 @@
+@import "../src/styles/global-theme.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --background: 245, 247, 250;
+    --foreground: 17, 24, 39;
+    
+    --card: 255, 255, 255;
+    --card-foreground: 17, 24, 39;
+    
+    --popover: 255, 255, 255;
+    --popover-foreground: 17, 24, 39;
+    
+    --primary: 171, 80%, 40%;
+    --primary-foreground: 0, 0%, 100%;
+    
+    --secondary: 215, 100%, 50%;
+    --secondary-foreground: 0, 0%, 100%;
+    
+    --muted: 229, 231, 235;
+    --muted-foreground: 107, 114, 128;
+    
+    --accent: 219, 234, 254;
+    --accent-foreground: 30, 64, 175;
+    
+    --destructive: 0, 84%, 60%;
+    --destructive-foreground: 0, 0%, 100%;
+    
+    --border: 229, 231, 235;
+    --input: 229, 231, 235;
+    --ring: 171, 80%, 40%;
+    
+    --radius: 0.75rem;
+    
+    /* Chart colors - using teal and blue palette */
+    --chart-1: 171, 80%, 40%;
+    --chart-2: 183, 67%, 54%;
+    --chart-3: 192, 59%, 51%;
+    --chart-4: 200, 98%, 39%;
+    --chart-5: 215, 100%, 50%;
+    
+    /* Sidebar colors */
+    --sidebar-background: 245, 247, 250;
+    --sidebar-foreground: 17, 24, 39;
+    --sidebar-primary: 171, 80%, 40%;
+    --sidebar-primary-foreground: 0, 0%, 100%;
+    --sidebar-accent: 219, 234, 254;
+    --sidebar-accent-foreground: 30, 64, 175;
+    --sidebar-border: 229, 231, 235;
+    --sidebar-ring: 171, 80%, 40%;
+  }
+
+  .dark {
+    --background: 17, 24, 39;
+    --foreground: 237, 244, 255;
+    
+    --card: 26, 32, 44;
+    --card-foreground: 237, 244, 255;
+    
+    --popover: 26, 32, 44;
+    --popover-foreground: 237, 244, 255;
+    
+    --primary: 171, 80%, 40%;
+    --primary-foreground: 0, 0%, 100%;
+    
+    --secondary: 215, 100%, 50%;
+    --secondary-foreground: 0, 0%, 100%;
+    
+    --muted: 55, 65, 81;
+    --muted-foreground: 209, 213, 219;
+    
+    --accent: 17, 24, 39;
+    --accent-foreground: 171, 80%, 40%;
+    
+    --destructive: 0, 62%, 50%;
+    --destructive-foreground: 0, 0%, 100%;
+    
+    --border: 55, 65, 81;
+    --input: 55, 65, 81;
+    --ring: 171, 80%, 40%;
+    
+    /* Chart colors for dark mode */
+    --chart-1: 171, 80%, 40%;
+    --chart-2: 183, 67%, 54%;
+    --chart-3: 192, 59%, 51%;
+    --chart-4: 200, 98%, 39%;
+    --chart-5: 215, 100%, 50%;
+    
+    /* Sidebar colors for dark mode */
+    --sidebar-background: 26, 32, 44;
+    --sidebar-foreground: 237, 244, 255;
+    --sidebar-primary: 171, 80%, 40%;
+    --sidebar-primary-foreground: 0, 0%, 100%;
+    --sidebar-accent: 17, 24, 39;
+    --sidebar-accent-foreground: 171, 80%, 40%;
+    --sidebar-border: 55, 65, 81;
+    --sidebar-ring: 171, 80%, 40%;
+  }
+
   * {
     @apply border-border;
   }
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+  }
+  
+  /* Accessibility: Focus styles that meet WCAG standards */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+  
+  /* Accessibility: Skip to content link */
+  .skip-to-content {
+    @apply sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-background focus:px-4 focus:py-2 focus:text-foreground focus:outline-none focus:ring-2 focus:ring-ring;
   }
 }

@@ -1,0 +1,204 @@
+/**
+ * Global Theme Variables - AccessWebPro UI Shell
+ *
+ * This file contains CSS variables for the AccessWebPro UI theme
+ * designed to meet WCAG 2.1 compliance standards while providing
+ * a modern and visually appealing interface.
+ */
+
+:root {
+  /* ====== Primary Colors ====== */
+  --color-primary-50: 230, 252, 245;  /* #e6fcf5 - Lightest teal */
+  --color-primary-100: 204, 251, 241; /* #ccfbf1 - Very light teal */
+  --color-primary-200: 153, 246, 228; /* #99f6e4 - Light teal */
+  --color-primary-300: 94, 234, 212;  /* #5eead4 - Medium light teal */
+  --color-primary-400: 45, 212, 191;  /* #2dd4bf - Medium teal */
+  --color-primary-500: 20, 184, 166;  /* #14b8a6 - Base teal */
+  --color-primary-600: 13, 148, 136;  /* #0d9488 - Medium dark teal */
+  --color-primary-700: 15, 118, 110;  /* #0f766e - Dark teal */
+  --color-primary-800: 17, 94, 89;    /* #115e59 - Very dark teal */
+  --color-primary-900: 19, 78, 74;    /* #134e4a - Darkest teal */
+  --color-primary-950: 8, 51, 47;     /* #08332f - Ultra dark teal */
+  
+  /* ====== Secondary Colors (Blue) ====== */
+  --color-secondary-50: 239, 246, 255;  /* #eff6ff - Lightest blue */
+  --color-secondary-100: 219, 234, 254; /* #dbeafe - Very light blue */
+  --color-secondary-200: 191, 219, 254; /* #bfdbfe - Light blue */
+  --color-secondary-300: 147, 197, 253; /* #93c5fd - Medium light blue */
+  --color-secondary-400: 96, 165, 250;  /* #60a5fa - Medium blue */
+  --color-secondary-500: 59, 130, 246;  /* #3b82f6 - Base blue */
+  --color-secondary-600: 37, 99, 235;   /* #2563eb - Medium dark blue */
+  --color-secondary-700: 29, 78, 216;   /* #1d4ed8 - Dark blue */
+  --color-secondary-800: 30, 64, 175;   /* #1e40af - Very dark blue */
+  --color-secondary-900: 30, 58, 138;   /* #1e3a8a - Darkest blue */
+  --color-secondary-950: 23, 37, 84;    /* #172554 - Ultra dark blue */
+  
+  /* ====== Neutral Colors - Grays ====== */
+  --color-gray-50: 249, 250, 251;  /* #f9fafb */
+  --color-gray-100: 243, 244, 246; /* #f3f4f6 */
+  --color-gray-200: 229, 231, 235; /* #e5e7eb */
+  --color-gray-300: 209, 213, 219; /* #d1d5db */
+  --color-gray-400: 156, 163, 175; /* #9ca3af */
+  --color-gray-500: 107, 114, 128; /* #6b7280 */
+  --color-gray-600: 75, 85, 99;    /* #4b5563 */
+  --color-gray-700: 55, 65, 81;    /* #374151 */
+  --color-gray-800: 31, 41, 55;    /* #1f2937 */
+  --color-gray-900: 17, 24, 39;    /* #111827 */
+  --color-gray-950: 9, 12, 19;     /* #090c13 */
+  
+  /* ====== Semantic Colors - For feedback and status ====== */
+  /* Success - Greens */
+  --color-success-50: 240, 253, 244;  /* #f0fdf4 */
+  --color-success-100: 220, 252, 231; /* #dcfce7 */
+  --color-success-200: 187, 247, 208; /* #bbf7d0 */
+  --color-success-300: 134, 239, 172; /* #86efac */
+  --color-success-400: 74, 222, 128;  /* #4ade80 */
+  --color-success-500: 34, 197, 94;   /* #22c55e */
+  --color-success-600: 22, 163, 74;   /* #16a34a */
+  --color-success-700: 21, 128, 61;   /* #15803d */
+  --color-success-800: 22, 101, 52;   /* #166534 */
+  --color-success-900: 20, 83, 45;    /* #14532d */
+  --color-success-950: 5, 46, 22;     /* #052e16 */
+  
+  /* Warning - Ambers */
+  --color-warning-50: 255, 251, 235;  /* #fffbeb */
+  --color-warning-100: 254, 243, 199; /* #fef3c7 */
+  --color-warning-200: 253, 230, 138; /* #fde68a */
+  --color-warning-300: 252, 211, 77;  /* #fcd34d */
+  --color-warning-400: 251, 191, 36;  /* #fbbf24 */
+  --color-warning-500: 245, 158, 11;  /* #f59e0b */
+  --color-warning-600: 217, 119, 6;   /* #d97706 */
+  --color-warning-700: 180, 83, 9;    /* #b45309 */
+  --color-warning-800: 146, 64, 14;   /* #92400e */
+  --color-warning-900: 120, 53, 15;   /* #78350f */
+  --color-warning-950: 69, 26, 3;     /* #451a03 */
+  
+  /* Error - Reds */
+  --color-error-50: 254, 242, 242;   /* #fef2f2 */
+  --color-error-100: 254, 226, 226;  /* #fee2e2 */
+  --color-error-200: 254, 202, 202;  /* #fecaca */
+  --color-error-300: 252, 165, 165;  /* #fca5a5 */
+  --color-error-400: 248, 113, 113;  /* #f87171 */
+  --color-error-500: 239, 68, 68;    /* #ef4444 */
+  --color-error-600: 220, 38, 38;    /* #dc2626 */
+  --color-error-700: 185, 28, 28;    /* #b91c1c */
+  --color-error-800: 153, 27, 27;    /* #991b1b */
+  --color-error-900: 127, 29, 29;    /* #7f1d1d */
+  --color-error-950: 69, 10, 10;     /* #450a0a */
+  
+  /* Info - Blues */
+  --color-info-50: 239, 246, 255;   /* #eff6ff */
+  --color-info-100: 219, 234, 254;  /* #dbeafe */
+  --color-info-200: 191, 219, 254;  /* #bfdbfe */
+  --color-info-300: 147, 197, 253;  /* #93c5fd */
+  --color-info-400: 96, 165, 250;   /* #60a5fa */
+  --color-info-500: 59, 130, 246;   /* #3b82f6 */
+  --color-info-600: 37, 99, 235;    /* #2563eb */
+  --color-info-700: 29, 78, 216;    /* #1d4ed8 */
+  --color-info-800: 30, 64, 175;    /* #1e40af */
+  --color-info-900: 30, 58, 138;    /* #1e3a8a */
+  --color-info-950: 23, 37, 84;     /* #172554 */
+  
+  /* ====== Typography ====== */
+  --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-mono: 'SF Mono', SFMono-Regular, ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace;
+  
+  /* ====== Spacing ====== */
+  --spacing-1: 0.25rem;    /* 4px */
+  --spacing-2: 0.5rem;     /* 8px */
+  --spacing-3: 0.75rem;    /* 12px */
+  --spacing-4: 1rem;       /* 16px */
+  --spacing-5: 1.25rem;    /* 20px */
+  --spacing-6: 1.5rem;     /* 24px */
+  --spacing-8: 2rem;       /* 32px */
+  --spacing-10: 2.5rem;    /* 40px */
+  --spacing-12: 3rem;      /* 48px */
+  --spacing-16: 4rem;      /* 64px */
+  --spacing-20: 5rem;      /* 80px */
+  --spacing-24: 6rem;      /* 96px */
+  
+  /* ====== Borders ====== */
+  --border-radius-sm: 0.125rem;  /* 2px */
+  --border-radius-md: 0.375rem;  /* 6px */
+  --border-radius-lg: 0.5rem;    /* 8px */
+  --border-radius-xl: 0.75rem;   /* 12px */
+  --border-radius-2xl: 1rem;     /* 16px */
+  --border-radius-pill: 9999px;  /* For pill-shaped elements */
+  
+  /* ====== Shadows ====== */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  
+  /* ====== Transitions ====== */
+  --transition-all: all 0.3s ease;
+  --transition-colors: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
+  --transition-opacity: opacity 0.3s ease;
+  --transition-shadow: box-shadow 0.3s ease;
+  --transition-transform: transform 0.3s ease;
+  
+  /* ====== Z-indices ====== */
+  --z-0: 0;
+  --z-10: 10;
+  --z-20: 20;
+  --z-30: 30;
+  --z-40: 40;
+  --z-50: 50;
+  --z-auto: auto;
+}
+
+/* Light mode defaults (based on Sierra Key Analytics design) */
+:root {
+  /* Card and container background colors */
+  --card-bg: 255, 255, 255;           /* #ffffff - White background */
+  --card-bg-secondary: 249, 250, 251; /* #f9fafb - Very light gray for secondary elements */
+  --container-bg: 245, 247, 250;      /* #f5f7fa - Light gray with slight blue tint for main containers */
+  
+  /* Text colors */
+  --text-primary: 17, 24, 39;         /* #111827 - Near black */
+  --text-secondary: 75, 85, 99;       /* #4b5563 - Dark gray */
+  --text-tertiary: 107, 114, 128;     /* #6b7280 - Medium gray */
+  --text-muted: 156, 163, 175;        /* #9ca3af - Light gray text */
+
+  /* Component colors */
+  --border-light: 229, 231, 235;      /* #e5e7eb - Light gray border */
+  --focus-ring: 20, 184, 166, 0.5;    /* #14b8a6 with opacity - Teal focus ring */
+}
+
+/* Dark mode theme overrides */
+.dark {
+  /* Card and container background colors for dark mode */
+  --card-bg: 26, 32, 44;             /* #1a202c - Dark blue-gray background */
+  --card-bg-secondary: 30, 41, 59;   /* #1e293b - Slightly lighter for secondary elements */
+  --container-bg: 17, 24, 39;        /* #111827 - Very dark background for main containers */
+  
+  /* Text colors */
+  --text-primary: 237, 244, 255;     /* #edf4ff - Off-white */
+  --text-secondary: 209, 213, 219;   /* #d1d5db - Light gray */
+  --text-tertiary: 156, 163, 175;    /* #9ca3af - Medium gray */
+  --text-muted: 107, 114, 128;       /* #6b7280 - Dark gray text in dark mode */
+
+  /* Component colors */
+  --border-light: 55, 65, 81;        /* #374151 - Dark gray border */
+  --focus-ring: 20, 184, 166, 0.5;   /* #14b8a6 with opacity - Teal focus ring (unchanged) */
+}
+
+/* Accessibility: Smooth transitions with respect for reduced motion preferences */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    transition: background-color 0.2s ease-in-out, 
+                color 0.2s ease-in-out, 
+                border-color 0.2s ease-in-out,
+                box-shadow 0.2s ease-in-out;
+  }
+}
+
+/* Accessibility: Remove transitions for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
