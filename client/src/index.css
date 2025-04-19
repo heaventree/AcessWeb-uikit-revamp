@@ -6,14 +6,14 @@
 
 @layer base {
   :root {
-    --background: 245, 247, 250;
-    --foreground: 17, 24, 39;
+    --background: 210, 40%, 98%;
+    --foreground: 222, 47%, 11%;
     
-    --card: 255, 255, 255;
-    --card-foreground: 17, 24, 39;
+    --card: 0, 0%, 100%;
+    --card-foreground: 222, 47%, 11%;
     
-    --popover: 255, 255, 255;
-    --popover-foreground: 17, 24, 39;
+    --popover: 0, 0%, 100%;
+    --popover-foreground: 222, 47%, 11%;
     
     --primary: 171, 80%, 40%;
     --primary-foreground: 0, 0%, 100%;
@@ -56,16 +56,16 @@
 
   .dark {
     /* Background and foreground with enhanced contrast */
-    --background: 15, 23, 42; /* #0f172a - Even darker for better contrast */
-    --foreground: 248, 250, 252; /* #f8fafc - Very light gray, almost white - 16:1 contrast ratio */
+    --background: 222, 47%, 11%; /* #0f172a - Even darker for better contrast */
+    --foreground: 210, 40%, 98%; /* #f8fafc - Very light gray, almost white - 16:1 contrast ratio */
     
     /* Card colors with sufficient contrast against text */
-    --card: 30, 41, 59; /* #1e293b - Dark blue-gray for cards */
-    --card-foreground: 248, 250, 252; /* #f8fafc - Very light gray, almost white - 14:1 contrast ratio */
+    --card: 222, 47%, 17%; /* #1e293b - Dark blue-gray for cards */
+    --card-foreground: 210, 40%, 98%; /* #f8fafc - Very light gray, almost white - 14:1 contrast ratio */
     
     /* Popover with consistent styling */
-    --popover: 30, 41, 59; /* #1e293b - Same as card for consistency */
-    --popover-foreground: 248, 250, 252; /* #f8fafc - Very light gray for text - 14:1 contrast ratio */
+    --popover: 222, 47%, 17%; /* #1e293b - Same as card for consistency */
+    --popover-foreground: 210, 40%, 98%; /* #f8fafc - Very light gray for text - 14:1 contrast ratio */
     
     /* Primary and secondary colors with same hue but adjusted for dark mode */
     --primary: 171, 80%, 45%; /* Slightly brighter teal for dark mode visibility */

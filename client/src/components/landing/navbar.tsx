@@ -23,19 +23,34 @@ export default function Navbar() {
   
   // Toggle dark mode function
   const toggleTheme = () => {
+    console.log("Toggling theme");
     const root = window.document.documentElement;
+    const isDark = root.classList.contains("dark");
     
-    if (root.classList.contains("dark")) {
+    // Log current state
+    console.log("Current dark mode:", isDark);
+    console.log("Current classes:", root.classList.toString());
+    
+    if (isDark) {
+      // Switch to light mode
       root.classList.remove("dark");
       root.classList.add("light");
       localStorage.setItem("accessweb-theme", "light");
+      document.body.style.colorScheme = "light";
       setDarkMode(false);
+      console.log("Switched to light mode");
     } else {
+      // Switch to dark mode
       root.classList.remove("light");
       root.classList.add("dark");
       localStorage.setItem("accessweb-theme", "dark");
+      document.body.style.colorScheme = "dark";
       setDarkMode(true);
+      console.log("Switched to dark mode");
     }
+    
+    // Log updated state
+    console.log("Updated classes:", root.classList.toString());
   };
   
   // Effect to listen for theme changes
