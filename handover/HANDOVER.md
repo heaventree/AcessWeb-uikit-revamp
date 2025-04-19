@@ -1,5 +1,22 @@
 # AccessWebPro UI Skin - Handover Document
 
+# ⚠️ CRITICAL INFORMATION - READ FIRST ⚠️
+
+## About ACCESS_WEB_V9_7_REFERENCE Folder
+
+**GOLDEN RULE: The ACCESS_WEB_V9_7_REFERENCE folder is FOR REFERENCE ONLY.**
+
+This folder contains the base AccessWebPro application code and should NEVER be used as a source for or storage of our work. It exists solely to:
+
+1. Provide reference for the underlying structure our skin will sit on top of
+2. Show navigation items that can be used as a sitemap for our work
+3. Help us understand what components we need to style
+4. Serve as an example of existing implementation patterns
+
+**DO NOT modify, copy to, or store any of our UI skin code within this folder.** All our UI skin development should be separate from this reference codebase.
+
+We may extract data such as navigation items, component structures, and page layouts to understand what we need to style, but our implementation must remain independent. This separation ensures our skin can be properly applied as a layer on top of the core application.
+
 ## About This Document
 
 This document is the **single source of truth** for tracking progress on the AccessWebPro UI Skin project. It should be **appended to** at the end of each development session, never overwritten or replaced.
