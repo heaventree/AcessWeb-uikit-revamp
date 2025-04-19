@@ -93,22 +93,23 @@ const IconGuidePage = () => {
 
   return (
     <div className="container mx-auto py-6">
-      <h1 className="text-3xl font-bold mb-6">AccessWebPro Icon Guide</h1>
-      <p className="text-lg mb-8">
+      <h1 className="text-4xl font-bold mb-6">AccessWebPro Icon Guide</h1>
+      {/* Using base-16px text size for main content */}
+      <p className="text-base mb-8">
         This guide demonstrates the recommended icons for navigation items across the AccessWebPro application.
         Using consistent icons helps maintain a unified visual language throughout the UI.
       </p>
       
       <Tabs defaultValue="examples">
         <TabsList className="mb-4">
-          <TabsTrigger value="examples">Menu Examples</TabsTrigger>
-          <TabsTrigger value="icons">Icon List</TabsTrigger>
+          <TabsTrigger value="examples" className="text-base">Menu Examples</TabsTrigger>
+          <TabsTrigger value="icons" className="text-base">Icon List</TabsTrigger>
         </TabsList>
         
         <TabsContent value="examples" className="space-y-6">
           <div className="bg-card p-6 rounded-lg border">
             <h2 className="text-2xl font-bold mb-4">Menu Item Examples</h2>
-            <p className="mb-6">These examples show how the icons appear in actual menu items with labels and descriptions.</p>
+            <p className="text-base mb-6">These examples show how the icons appear in actual menu items with labels and descriptions.</p>
             <MenuStyleShowcase sections={menuSections} />
           </div>
         </TabsContent>
@@ -116,7 +117,7 @@ const IconGuidePage = () => {
         <TabsContent value="icons">
           <div className="bg-card p-6 rounded-lg border">
             <h2 className="text-2xl font-bold mb-4">Icon Library</h2>
-            <p className="mb-6">Complete reference of all icons used in navigation throughout the application.</p>
+            <p className="text-base mb-6">Complete reference of all icons used in navigation throughout the application.</p>
             <IconPreview />
           </div>
         </TabsContent>

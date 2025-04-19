@@ -124,7 +124,8 @@ export function IconPreview() {
           {Object.entries(NavigationIcons.main).map(([key, Icon]) => (
             <div key={key} className="flex flex-col items-center p-4 border rounded-md">
               <Icon className="h-6 w-6 mb-2" />
-              <span className="text-sm text-center">{key}</span>
+              {/* Using WCAG-compliant font size (16px) */}
+              <span className="text-base text-center">{key}</span>
             </div>
           ))}
         </div>
@@ -136,7 +137,7 @@ export function IconPreview() {
           {Object.entries(NavigationIcons.tools).map(([key, Icon]) => (
             <div key={key} className="flex flex-col items-center p-4 border rounded-md">
               <Icon className="h-6 w-6 mb-2" />
-              <span className="text-sm text-center">{key}</span>
+              <span className="text-base text-center">{key}</span>
             </div>
           ))}
         </div>
@@ -148,7 +149,7 @@ export function IconPreview() {
           {Object.entries(NavigationIcons.integrations).map(([key, Icon]) => (
             <div key={key} className="flex flex-col items-center p-4 border rounded-md">
               <Icon className="h-6 w-6 mb-2" />
-              <span className="text-sm text-center">{key}</span>
+              <span className="text-base text-center">{key}</span>
             </div>
           ))}
         </div>
@@ -160,7 +161,7 @@ export function IconPreview() {
           {Object.entries(NavigationIcons.resources).map(([key, Icon]) => (
             <div key={key} className="flex flex-col items-center p-4 border rounded-md">
               <Icon className="h-6 w-6 mb-2" />
-              <span className="text-sm text-center">{key}</span>
+              <span className="text-base text-center">{key}</span>
             </div>
           ))}
         </div>
@@ -172,7 +173,7 @@ export function IconPreview() {
           {Object.entries(NavigationIcons.userDashboard).map(([key, Icon]) => (
             <div key={key} className="flex flex-col items-center p-4 border rounded-md">
               <Icon className="h-6 w-6 mb-2" />
-              <span className="text-sm text-center">{key}</span>
+              <span className="text-base text-center">{key}</span>
             </div>
           ))}
         </div>
@@ -184,7 +185,7 @@ export function IconPreview() {
           {Object.entries(NavigationIcons.adminDashboard).map(([key, Icon]) => (
             <div key={key} className="flex flex-col items-center p-4 border rounded-md">
               <Icon className="h-6 w-6 mb-2" />
-              <span className="text-sm text-center">{key}</span>
+              <span className="text-base text-center">{key}</span>
             </div>
           ))}
         </div>

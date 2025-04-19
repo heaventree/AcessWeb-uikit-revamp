@@ -17,14 +17,19 @@ interface MenuSection {
 // Component to render a single menu item
 export const MenuItemDisplay: React.FC<MenuItem> = ({ icon: Icon, label, description }) => {
   return (
-    <div className="flex items-center space-x-3 p-3 rounded-md hover:bg-accent/50 transition-colors">
-      <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-primary/10">
-        <Icon className="h-5 w-5 text-primary" />
+    <div className="p-3 rounded-md hover:bg-accent/50 transition-colors">
+      <div className="flex items-center mb-1">
+        {/* Icon aligned with title */}
+        <Icon className="h-5 w-5 mr-2 text-primary" />
+        {/* Main title - ensuring 16px minimum font size */}
+        <div className="font-medium text-base">{label}</div>
       </div>
-      <div className="flex-1">
-        <div className="font-medium">{label}</div>
-        {description && <div className="text-sm text-muted-foreground">{description}</div>}
-      </div>
+      {/* Description aligned with left edge of the icon */}
+      {description && (
+        <div className="pl-7 text-base text-muted-foreground">
+          {description}
+        </div>
+      )}
     </div>
   );
 };
@@ -33,7 +38,8 @@ export const MenuItemDisplay: React.FC<MenuItem> = ({ icon: Icon, label, descrip
 export const MenuSectionDisplay: React.FC<MenuSection> = ({ title, items }) => {
   return (
     <div className="space-y-2">
-      <h3 className="text-lg font-semibold mb-3">{title}</h3>
+      {/* Section title with WCAG compliant font size */}
+      <h3 className="text-xl font-semibold mb-3">{title}</h3>
       <div className="space-y-1 border rounded-lg p-2">
         {items.map((item, index) => (
           <MenuItemDisplay key={index} {...item} />
