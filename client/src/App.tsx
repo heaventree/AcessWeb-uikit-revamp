@@ -8,6 +8,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import AppShell from "@/components/shell/AppShell";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
+import IconGuidePage from "@/pages/icon-guide";
 
 function Router() {
   const [location] = useLocation();
@@ -20,6 +21,7 @@ function Router() {
     return (
       <Switch>
         <Route path="/" component={Home} />
+        <Route path="/icon-guide" component={IconGuidePage} />
         <Route component={NotFound} />
       </Switch>
     );
@@ -30,6 +32,7 @@ function Router() {
     <AppShell title="AccessWebPro">
       <Switch>
         <Route path="/" component={Home} />
+        <Route path="/icon-guide" component={IconGuidePage} />
         <Route path="/dashboard">
           <div className="grid gap-4">
             <h1 className="text-2xl font-bold tracking-tight">Dashboard</h1>
