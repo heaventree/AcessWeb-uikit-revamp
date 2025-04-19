@@ -72,9 +72,9 @@ export function WCAGToolbar() {
     setContrastMode(prevMode => prevMode === 'normal' ? 'high' : 'normal');
   };
   
-  // Update theme state when document theme changes
+  // Update theme state when component mounts and when theme changes
   useEffect(() => {
-    // Get initial theme
+    // Get initial theme on component mount
     const isDark = document.documentElement.classList.contains("dark");
     setThemeState(isDark ? "dark" : "light");
     
