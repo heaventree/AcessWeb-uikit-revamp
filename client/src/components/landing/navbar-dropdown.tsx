@@ -52,7 +52,7 @@ export const NavDropdown: React.FC<DropdownProps> = ({ label, items }) => {
   return (
     <div ref={dropdownRef} className="relative inline-block">
       <button
-        className="flex items-center text-muted-foreground hover:text-foreground text-sm font-medium transition-colors"
+        className="flex items-center text-muted-foreground hover:text-foreground text-base font-medium transition-colors"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-haspopup="true"

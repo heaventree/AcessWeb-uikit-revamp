@@ -213,7 +213,7 @@ export default function Navbar() {
             <a 
               key={index}
               href={item.href} 
-              className="text-muted-foreground hover:text-foreground text-sm font-medium transition-colors"
+              className="text-muted-foreground hover:text-foreground text-base font-medium transition-colors"
             >
               {item.label}
             </a>
@@ -221,7 +221,7 @@ export default function Navbar() {
         </nav>
         
         <div className="flex items-center space-x-5">
-          <a href="#" className="hidden md:inline-block text-muted-foreground hover:text-foreground text-sm font-medium transition-colors">
+          <a href="#" className="hidden md:inline-block text-muted-foreground hover:text-foreground text-base font-medium transition-colors">
             Login
           </a>
           <Button 
@@ -280,7 +280,7 @@ export default function Navbar() {
                       <item.icon className="h-4 w-4 mr-2 text-[#0fae96] dark:text-[#5eead4]" />
                       <span className="dark:text-white">{item.label}</span>
                     </div>
-                    <div className="pl-7 text-sm text-muted-foreground dark:text-[#5eead4] whitespace-nowrap text-ellipsis overflow-hidden">
+                    <div className="pl-7 text-base text-muted-foreground dark:text-[#5eead4] whitespace-nowrap text-ellipsis overflow-hidden">
                       {item.description}
                     </div>
                   </a>
@@ -298,7 +298,7 @@ export default function Navbar() {
                       <item.icon className="h-4 w-4 mr-2 text-[#0fae96] dark:text-[#5eead4]" />
                       <span className="dark:text-white">{item.label}</span>
                     </div>
-                    <div className="pl-7 text-sm text-muted-foreground dark:text-[#5eead4] whitespace-nowrap text-ellipsis overflow-hidden">
+                    <div className="pl-7 text-base text-muted-foreground dark:text-[#5eead4] whitespace-nowrap text-ellipsis overflow-hidden">
                       {item.description}
                     </div>
                   </a>
@@ -316,7 +316,7 @@ export default function Navbar() {
                       <item.icon className="h-4 w-4 mr-2 text-[#0fae96] dark:text-[#5eead4]" />
                       <span className="dark:text-white">{item.label}</span>
                     </div>
-                    <div className="pl-7 text-sm text-muted-foreground dark:text-[#5eead4] whitespace-nowrap text-ellipsis overflow-hidden">
+                    <div className="pl-7 text-base text-muted-foreground dark:text-[#5eead4] whitespace-nowrap text-ellipsis overflow-hidden">
                       {item.description}
                     </div>
                   </a>
@@ -329,7 +329,7 @@ export default function Navbar() {
               <a 
                 key={index}
                 href={item.href} 
-                className="block py-3 text-muted-foreground hover:text-foreground font-medium"
+                className="block py-3 text-muted-foreground hover:text-foreground text-base font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
@@ -339,7 +339,7 @@ export default function Navbar() {
               <div className="flex items-center justify-between py-3">
                 <a 
                   href="#" 
-                  className="text-muted-foreground hover:text-foreground font-medium"
+                  className="text-muted-foreground hover:text-foreground text-base font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Login
