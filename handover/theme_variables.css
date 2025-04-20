@@ -1,0 +1,196 @@
+/* AccessWebPro Theme Variables
+ * Core CSS variables for the UI skin with both light and dark mode support
+ * Use these variables throughout the application for consistent styling
+ */
+
+:root {
+  /* Base colors as RGB values for opacity control */
+  --color-primary-50: 236, 254, 251;  /* #ecfefb */
+  --color-primary-100: 209, 250, 243; /* #d1faf3 */
+  --color-primary-200: 166, 244, 230; /* #a6f4e6 */
+  --color-primary-300: 109, 231, 209; /* #6de7d1 */
+  --color-primary-400: 45, 210, 183;  /* #2dd2b7 */
+  --color-primary-500: 15, 174, 150;  /* #0fae96 */
+  --color-primary-600: 13, 148, 127;  /* #0d947f */
+  --color-primary-700: 16, 107, 92;   /* #106b5c */
+  --color-primary-800: 17, 84, 73;    /* #115449 */
+  --color-primary-900: 18, 70, 60;    /* #12463c */
+  --color-primary-950: 5, 42, 37;     /* #052a25 */
+  
+  --color-secondary-50: 230, 241, 255;  /* #e6f1ff */
+  --color-secondary-100: 204, 224, 255; /* #cce0ff */
+  --color-secondary-200: 153, 194, 255; /* #99c2ff */
+  --color-secondary-300: 102, 163, 255; /* #66a3ff */
+  --color-secondary-400: 51, 133, 255;  /* #3385ff */
+  --color-secondary-500: 0, 102, 255;   /* #0066ff */
+  --color-secondary-600: 0, 82, 204;    /* #0052cc */
+  --color-secondary-700: 0, 61, 153;    /* #003d99 */
+  --color-secondary-800: 0, 41, 102;    /* #002966 */
+  --color-secondary-900: 0, 20, 51;     /* #001433 */
+  
+  --color-success-50: 236, 253, 245;  /* #ecfdf5 */
+  --color-success-100: 209, 250, 229; /* #d1fae5 */
+  --color-success-200: 167, 243, 208; /* #a7f3d0 */
+  --color-success-300: 110, 231, 183; /* #6ee7b7 */
+  --color-success-400: 52, 211, 153;  /* #34d399 */
+  --color-success-500: 16, 185, 129;  /* #10b981 */
+  --color-success-600: 5, 150, 105;   /* #059669 */
+  --color-success-700: 4, 120, 87;    /* #047857 */
+  --color-success-800: 6, 95, 70;     /* #065f46 */
+  --color-success-900: 6, 78, 59;     /* #064e3b */
+  
+  --color-warning-50: 255, 251, 235;  /* #fffbeb */
+  --color-warning-100: 254, 243, 199; /* #fef3c7 */
+  --color-warning-200: 254, 230, 138; /* #fee68a */
+  --color-warning-300: 252, 211, 77;  /* #fcd34d */
+  --color-warning-400: 251, 191, 36;  /* #fbbf24 */
+  --color-warning-500: 245, 158, 11;  /* #f59e0b */
+  --color-warning-600: 217, 119, 6;   /* #d97706 */
+  --color-warning-700: 180, 83, 9;    /* #b45309 */
+  --color-warning-800: 146, 64, 14;   /* #92400e */
+  --color-warning-900: 120, 53, 15;   /* #78350f */
+  
+  --color-error-50: 254, 242, 242;   /* #fef2f2 */
+  --color-error-100: 254, 226, 226;  /* #fee2e2 */
+  --color-error-200: 254, 202, 202;  /* #fecaca */
+  --color-error-300: 252, 165, 165;  /* #fca5a5 */
+  --color-error-400: 248, 113, 113;  /* #f87171 */
+  --color-error-500: 239, 68, 68;    /* #ef4444 */
+  --color-error-600: 220, 38, 38;    /* #dc2626 */
+  --color-error-700: 185, 28, 28;    /* #b91c1c */
+  --color-error-800: 153, 27, 27;    /* #991b1b */
+  --color-error-900: 127, 29, 29;    /* #7f1d1d */
+  
+  --color-info-50: 239, 246, 255;   /* #eff6ff */
+  --color-info-100: 219, 234, 254;  /* #dbeafe */
+  --color-info-200: 191, 219, 254;  /* #bfdbfe */
+  --color-info-300: 147, 197, 253;  /* #93c5fd */
+  --color-info-400: 96, 165, 250;   /* #60a5fa */
+  --color-info-500: 59, 130, 246;   /* #3b82f6 */
+  --color-info-600: 37, 99, 235;    /* #2563eb */
+  --color-info-700: 29, 78, 216;    /* #1d4ed8 */
+  --color-info-800: 30, 64, 175;    /* #1e40af */
+  --color-info-900: 30, 58, 138;    /* #1e3a8a */
+  
+  --color-neutral-50: 249, 250, 251;   /* #f9fafb */
+  --color-neutral-100: 243, 244, 246;  /* #f3f4f6 */
+  --color-neutral-200: 229, 231, 235;  /* #e5e7eb */
+  --color-neutral-300: 209, 213, 219;  /* #d1d5db */
+  --color-neutral-400: 156, 163, 175;  /* #9ca3af */
+  --color-neutral-500: 107, 114, 128;  /* #6b7280 */
+  --color-neutral-600: 75, 85, 99;     /* #4b5563 */
+  --color-neutral-700: 55, 65, 81;     /* #374151 */
+  --color-neutral-800: 31, 41, 55;     /* #1f2937 */
+  --color-neutral-900: 17, 24, 39;     /* #111827 */
+  --color-neutral-950: 3, 7, 18;       /* #030712 */
+  
+  /* Semantic tokens - Light mode defaults */
+  --background: rgb(var(--color-neutral-50));
+  --foreground: rgb(var(--color-neutral-900));
+  
+  --card: rgb(255, 255, 255);
+  --card-foreground: rgb(var(--color-neutral-900));
+  
+  --popover: rgb(255, 255, 255);
+  --popover-foreground: rgb(var(--color-neutral-900));
+  
+  --primary: rgb(var(--color-primary-500));
+  --primary-lighter: rgb(var(--color-primary-400));
+  --primary-darker: rgb(var(--color-primary-600));
+  --primary-foreground: rgb(255, 255, 255);
+  
+  --secondary: rgb(var(--color-secondary-500));
+  --secondary-foreground: rgb(255, 255, 255);
+  
+  --muted: rgb(var(--color-neutral-100));
+  --muted-foreground: rgb(var(--color-neutral-500));
+  
+  --accent: rgb(var(--color-neutral-200));
+  --accent-foreground: rgb(var(--color-neutral-900));
+  
+  --border: rgb(var(--color-neutral-200));
+  --input: rgb(var(--color-neutral-200));
+  --ring: rgb(var(--color-primary-500));
+  
+  --destructive: rgb(var(--color-error-500));
+  --destructive-foreground: rgb(255, 255, 255);
+  
+  --success: rgb(var(--color-success-500));
+  --success-foreground: rgb(255, 255, 255);
+  
+  --warning: rgb(var(--color-warning-500));
+  --warning-foreground: rgb(var(--color-neutral-900));
+  
+  --info: rgb(var(--color-info-500));
+  --info-foreground: rgb(255, 255, 255);
+
+  /* Component-specific variables */
+  --button-primary-bg: var(--secondary);
+  --button-primary-text: var(--secondary-foreground);
+  --button-secondary-bg: var(--card);
+  --button-secondary-text: var(--muted-foreground);
+  
+  /* Sizing and spacing variables */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  
+  /* Border radius */
+  --radius-sm: 0.125rem;
+  --radius: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+}
+
+/* Dark mode overrides */
+.dark {
+  --background: rgb(var(--color-neutral-950));
+  --foreground: rgb(var(--color-neutral-50));
+  
+  --card: rgb(var(--color-neutral-800));
+  --card-foreground: rgb(var(--color-neutral-50));
+  
+  --popover: rgb(var(--color-neutral-800));
+  --popover-foreground: rgb(var(--color-neutral-50));
+  
+  --primary: rgb(94, 234, 212); /* #5eead4 - lighter teal for dark mode */
+  --primary-lighter: rgb(var(--color-primary-300)); 
+  --primary-darker: rgb(var(--color-primary-500));
+  --primary-foreground: rgb(var(--color-neutral-900));
+  
+  --secondary: rgb(var(--color-info-500)); /* Different blue tone for dark mode */
+  --secondary-foreground: rgb(255, 255, 255);
+  
+  --muted: rgb(var(--color-neutral-800));
+  --muted-foreground: rgb(var(--color-neutral-400));
+  
+  --accent: rgb(var(--color-neutral-700));
+  --accent-foreground: rgb(var(--color-neutral-50));
+  
+  --border: rgb(var(--color-neutral-700));
+  --input: rgb(var(--color-neutral-700));
+  --ring: rgb(94, 234, 212); /* Match dark mode primary */
+  
+  /* Keep semantic colors consistent in dark mode */
+  --destructive: rgb(var(--color-error-500));
+  --destructive-foreground: rgb(255, 255, 255);
+  
+  --success: rgb(var(--color-success-500));
+  --success-foreground: rgb(255, 255, 255);
+  
+  --warning: rgb(var(--color-warning-500));
+  --warning-foreground: rgb(255, 255, 255);
+  
+  --info: rgb(var(--color-info-500));
+  --info-foreground: rgb(255, 255, 255);
+}
