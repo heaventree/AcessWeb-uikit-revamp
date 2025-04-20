@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 // Don't use the broken theme provider
 // import { ThemeProvider } from "@/components/ui/theme-provider";
 import AppShell from "@/components/shell/AppShell";
+import { AppShellWithoutSidebar } from "@/components/shell/AppShellWithoutSidebar";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import IconGuidePage from "@/pages/icon-guide";
@@ -16,6 +17,9 @@ function Router() {
   
   // Determine if we're on the landing page
   const isLandingPage = location === "/";
+  
+  // Checker pages that need no sidebar
+  const isCheckerPage = location.includes("/wcag-checker");
   
   if (isLandingPage) {
     // For the landing page, don't use the app shell
@@ -28,7 +32,19 @@ function Router() {
     );
   }
   
-  // For all other pages, use the app shell
+  // For checker pages, use app shell without sidebar
+  if (isCheckerPage) {
+    return (
+      <AppShellWithoutSidebar title="AccessWebPro">
+        <Switch>
+          <Route path="/wcag-checker" component={CheckerPage} />
+          <Route component={NotFound} />
+        </Switch>
+      </AppShellWithoutSidebar>
+    );
+  }
+  
+  // For all other pages, use the app shell with sidebar
   return (
     <AppShell title="AccessWebPro">
       <Switch>
@@ -50,7 +66,6 @@ function Router() {
             </p>
           </div>
         </Route>
-        <Route path="/wcag-checker" component={CheckerPage} />
         <Route path="/settings">
           <div className="grid gap-4">
             <h1 className="text-2xl font-bold tracking-tight">Settings</h1>
