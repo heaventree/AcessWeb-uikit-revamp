@@ -9,6 +9,7 @@ import AppShell from "@/components/shell/AppShell";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import IconGuidePage from "@/pages/icon-guide";
+import CheckerPage from "@/pages/checker";
 
 function Router() {
   const [location] = useLocation();
@@ -49,14 +50,7 @@ function Router() {
             </p>
           </div>
         </Route>
-        <Route path="/wcag-checker">
-          <div className="grid gap-4">
-            <h1 className="text-2xl font-bold tracking-tight">WCAG Checker</h1>
-            <p className="text-muted-foreground">
-              Test your website against WCAG 2.1 accessibility standards.
-            </p>
-          </div>
-        </Route>
+        <Route path="/wcag-checker" component={CheckerPage} />
         <Route path="/settings">
           <div className="grid gap-4">
             <h1 className="text-2xl font-bold tracking-tight">Settings</h1>
