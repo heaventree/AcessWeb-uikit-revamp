@@ -124,6 +124,40 @@ export default function Navbar() {
     }
   ];
 
+  // Integrations dropdown items
+  const integrationsDropdownItems = [
+    { 
+      icon: NavigationIcons.integrations.shopify, 
+      label: 'Shopify',
+      description: 'Integrate with your Shopify store',
+      href: '/integrations/shopify'
+    },
+    { 
+      icon: NavigationIcons.integrations.wordpress, 
+      label: 'WordPress',
+      description: 'Add accessibility to your WordPress site',
+      href: '/integrations/wordpress'
+    },
+    { 
+      icon: NavigationIcons.integrations.api, 
+      label: 'API',
+      description: 'Connect with our RESTful API',
+      href: '/integrations/api'
+    },
+    { 
+      icon: NavigationIcons.integrations.compliance, 
+      label: 'Compliance',
+      description: 'Enterprise-grade compliance reports',
+      href: '/integrations/compliance'
+    },
+    { 
+      icon: NavigationIcons.integrations.enterprise, 
+      label: 'Enterprise',
+      description: 'Custom solutions for large organizations',
+      href: '/integrations/enterprise'
+    }
+  ];
+
   // Resources dropdown items
   const resourcesDropdownItems = [
     { 
@@ -167,6 +201,9 @@ export default function Navbar() {
         <nav className="hidden md:flex items-center space-x-8">
           {/* Tools Dropdown */}
           <NavDropdown label="Tools" items={toolsDropdownItems} />
+          
+          {/* Integrations Dropdown */}
+          <NavDropdown label="Integrations" items={integrationsDropdownItems} />
           
           {/* Resources Dropdown */}
           <NavDropdown label="Resources" items={resourcesDropdownItems} />
@@ -237,6 +274,24 @@ export default function Navbar() {
             <div className="py-2 mb-2">
               <h3 className="font-medium text-base mb-2 dark:text-[#5eead4]">Tools</h3>
               {toolsDropdownItems.map((item, index) => (
+                <Link key={index} href={item.href}>
+                  <a className="block py-2 pl-3 text-muted-foreground hover:text-foreground hover:bg-[#0fae96]/5 dark:hover:bg-[#0fae96]/10 rounded-md transition-all duration-200" onClick={() => setIsMenuOpen(false)}>
+                    <div className="flex items-center mb-1">
+                      <item.icon className="h-4 w-4 mr-2 text-[#0fae96] dark:text-[#5eead4]" />
+                      <span className="dark:text-white">{item.label}</span>
+                    </div>
+                    <div className="pl-7 text-sm text-muted-foreground dark:text-[#5eead4] whitespace-nowrap text-ellipsis overflow-hidden">
+                      {item.description}
+                    </div>
+                  </a>
+                </Link>
+              ))}
+            </div>
+            
+            {/* Integrations Section */}
+            <div className="py-2 mb-2">
+              <h3 className="font-medium text-base mb-2 dark:text-[#5eead4]">Integrations</h3>
+              {integrationsDropdownItems.map((item, index) => (
                 <Link key={index} href={item.href}>
                   <a className="block py-2 pl-3 text-muted-foreground hover:text-foreground hover:bg-[#0fae96]/5 dark:hover:bg-[#0fae96]/10 rounded-md transition-all duration-200" onClick={() => setIsMenuOpen(false)}>
                     <div className="flex items-center mb-1">
