@@ -19,7 +19,7 @@ function Router() {
   const isLandingPage = location === "/";
   
   // Checker pages that need no sidebar
-  const isCheckerPage = location.includes("/wcag-checker");
+  const isCheckerPage = location.includes("/tools/checker");
   
   if (isLandingPage) {
     // For the landing page, don't use the app shell
@@ -37,7 +37,7 @@ function Router() {
     return (
       <AppShellWithoutSidebar title="AccessWebPro">
         <Switch>
-          <Route path="/wcag-checker" component={CheckerPage} />
+          <Route path="/tools/checker" component={CheckerPage} />
           <Route component={NotFound} />
         </Switch>
       </AppShellWithoutSidebar>
