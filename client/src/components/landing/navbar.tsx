@@ -206,7 +206,10 @@ export default function Navbar() {
             variant="ghost"
             size="icon"
             className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => {
+              console.log("Mobile menu toggle clicked, current state:", isMenuOpen);
+              setIsMenuOpen(!isMenuOpen);
+            }}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
             aria-label="Toggle navigation menu"
@@ -222,11 +225,11 @@ export default function Navbar() {
         {isMenuOpen && (
           <motion.div 
             id="mobile-menu"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-background border-t border-border px-4 py-4 overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden bg-background border-t border-border px-4 py-4 overflow-hidden absolute w-full left-0 dark:bg-slate-900"
             role="navigation"
             aria-label="Mobile navigation"
           >
@@ -235,7 +238,7 @@ export default function Navbar() {
               <h3 className="font-medium text-base mb-2 dark:text-[#5eead4]">Tools</h3>
               {toolsDropdownItems.map((item, index) => (
                 <Link key={index} href={item.href}>
-                  <a className="block py-2 pl-3 text-muted-foreground hover:text-foreground" onClick={() => setIsMenuOpen(false)}>
+                  <a className="block py-2 pl-3 text-muted-foreground hover:text-foreground hover:bg-[#0fae96]/5 dark:hover:bg-[#0fae96]/10 rounded-md transition-all duration-200" onClick={() => setIsMenuOpen(false)}>
                     <div className="flex items-center mb-1">
                       <item.icon className="h-4 w-4 mr-2 text-[#0fae96] dark:text-[#5eead4]" />
                       <span className="dark:text-white">{item.label}</span>
@@ -253,7 +256,7 @@ export default function Navbar() {
               <h3 className="font-medium text-base mb-2 dark:text-[#5eead4]">Resources</h3>
               {resourcesDropdownItems.map((item, index) => (
                 <Link key={index} href={item.href}>
-                  <a className="block py-2 pl-3 text-muted-foreground hover:text-foreground" onClick={() => setIsMenuOpen(false)}>
+                  <a className="block py-2 pl-3 text-muted-foreground hover:text-foreground hover:bg-[#0fae96]/5 dark:hover:bg-[#0fae96]/10 rounded-md transition-all duration-200" onClick={() => setIsMenuOpen(false)}>
                     <div className="flex items-center mb-1">
                       <item.icon className="h-4 w-4 mr-2 text-[#0fae96] dark:text-[#5eead4]" />
                       <span className="dark:text-white">{item.label}</span>

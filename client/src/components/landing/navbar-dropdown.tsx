@@ -18,7 +18,7 @@ interface DropdownProps {
 
 const NavDropdownItem: React.FC<DropdownItemProps> = ({ icon: Icon, label, description, href }) => {
   return (
-    <div className="flex flex-col hover:bg-primary/5 dark:hover:bg-[#0fae96]/10 cursor-pointer p-3 rounded-md transition-all duration-200" 
+    <div className="flex flex-col hover:bg-[#0fae96]/5 dark:hover:bg-[#0fae96]/10 cursor-pointer p-3 rounded-md transition-all duration-200" 
          onClick={() => window.location.href = href}>
       <div className="flex items-center mb-1">
         <Icon className="h-5 w-5 text-[#0fae96] dark:text-[#5eead4] mr-2 flex-shrink-0" />
