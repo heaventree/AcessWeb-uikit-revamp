@@ -133,8 +133,8 @@ export default function CheckerPage() {
 
   return (
     <div className="container mx-auto px-4 pt-24 pb-16">
-      <div className="max-w-3xl mx-auto mb-16 bg-[#f8fafc] dark:bg-slate-900 rounded-xl shadow-sm p-8">
-        <h1 className="text-3xl md:text-4xl font-bold text-center mb-3 dark:text-white">
+      <div className="max-w-3xl mx-auto mb-16 bg-[#f8fafc] dark:bg-slate-900 rounded-xl shadow-md p-8 border border-gray-100 dark:border-slate-800">
+        <h1 className="text-3xl md:text-4xl font-bold text-center mb-3 dark:text-white bg-gradient-to-r from-[#0066FF] to-[#0fae96] dark:from-[#0066FF] dark:to-[#5eead4] bg-clip-text text-transparent">
           WCAG Accessibility Checker
         </h1>
         <p className="text-center text-muted-foreground text-lg mb-10 dark:text-[#94a3b8]">
@@ -148,10 +148,11 @@ export default function CheckerPage() {
               key={country.id}
               className={`px-6 py-2.5 rounded-full text-lg font-medium transition-all ${
                 selectedCountry === country.id 
-                  ? 'bg-[#e6f8f5] text-[#0fae96] dark:bg-[#0fae96]/20 dark:text-[#5eead4]' 
-                  : 'bg-white dark:bg-slate-800 text-muted-foreground hover:bg-gray-100 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-700'
+                  ? 'bg-[#e6f8f5] text-[#0fae96] dark:bg-[#0fae96]/20 dark:text-[#5eead4] border-2 border-[#0fae96] dark:border-[#5eead4]' 
+                  : 'bg-white dark:bg-slate-800 text-muted-foreground hover:bg-[#0fae96]/5 dark:hover:bg-[#0fae96]/10 border border-gray-200 dark:border-slate-700'
               }`}
               onClick={() => setSelectedCountry(country.id)}
+              aria-pressed={selectedCountry === country.id}
             >
               {country.label}
             </button>
@@ -163,12 +164,13 @@ export default function CheckerPage() {
           {standards.map(standard => (
             <button
               key={standard.id}
-              className={`px-5 py-1.5 rounded-full text-base font-medium transition-all ${
+              className={`px-5 py-2 rounded-full text-base font-medium transition-all ${
                 selectedStandards.includes(standard.id)
-                  ? standard.color
-                  : 'bg-white dark:bg-slate-800 text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-slate-700'
+                  ? `${standard.color} border-2 border-current`
+                  : 'bg-white dark:bg-slate-800 text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-slate-700 hover:bg-[#0fae96]/5 dark:hover:bg-[#0fae96]/10'
               }`}
               onClick={() => toggleStandard(standard.id)}
+              aria-pressed={selectedStandards.includes(standard.id)}
             >
               {standard.label}
             </button>
@@ -176,36 +178,41 @@ export default function CheckerPage() {
         </div>
         
         {/* Testing Options */}
-        <div className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg p-6 mb-10">
-          <div className="grid grid-cols-2 gap-6">
+        <div className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg p-8 mb-10">
+          <h3 className="text-lg font-semibold mb-4 dark:text-white">Additional Testing Options</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {testingOptions.map(option => (
-              <div key={option.id} className="flex items-center space-x-3">
-                <input
-                  type="checkbox"
-                  id={option.id}
-                  checked={selectedOptions.includes(option.id)}
-                  onChange={() => toggleOption(option.id)}
-                  className="h-5 w-5 rounded border-gray-300 text-[#0fae96] focus:ring-[#0fae96]"
-                />
-                <label htmlFor={option.id} className="text-base cursor-pointer flex items-center">
+              <div key={option.id} className="flex items-center space-x-4 p-2 hover:bg-[#0fae96]/5 dark:hover:bg-[#0fae96]/10 rounded-md transition-colors">
+                <div className="relative flex items-center justify-center">
+                  <input
+                    type="checkbox"
+                    id={option.id}
+                    checked={selectedOptions.includes(option.id)}
+                    onChange={() => toggleOption(option.id)}
+                    className="h-5 w-5 rounded border-gray-300 text-[#0fae96] focus:ring-[#0fae96] focus:ring-offset-2 focus-visible:outline-none"
+                  />
+                </div>
+                <label htmlFor={option.id} className="text-base font-medium cursor-pointer flex items-center flex-1">
                   {option.label}
                   <span className="ml-2 bg-[#0fae96] dark:bg-[#5eead4] text-white dark:text-slate-900 text-xs px-2 py-0.5 rounded-full">
                     {option.badge}
                   </span>
                 </label>
-                <InfoIcon />
+                <div className="tooltip relative" aria-label={`Information about ${option.label}`}>
+                  <InfoIcon />
+                </div>
               </div>
             ))}
           </div>
         </div>
 
         {/* URL Input */}
-        <div className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 shadow-md rounded-xl relative z-10 mb-4">
-          <div className="p-6 flex">
+        <div className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 shadow-md rounded-xl relative z-10 mb-6">
+          <div className="p-6 flex flex-col md:flex-row gap-4">
             <Input
               type="url"
               placeholder="Enter website URL (e.g., example.com)"
-              className="text-lg py-6 px-5 flex-1 border-gray-200 dark:border-slate-700 focus-visible:ring-1 focus-visible:ring-[#0fae96]"
+              className="text-lg py-6 px-5 flex-1 border-gray-200 dark:border-slate-700 focus-visible:ring-2 focus-visible:ring-[#0fae96] focus-visible:ring-offset-2 rounded-full"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               aria-label="Website URL"
@@ -213,7 +220,7 @@ export default function CheckerPage() {
             <Button 
               onClick={handleCheckSite}
               disabled={isLoading || !url}
-              className="ml-4 bg-[#0066FF] hover:bg-[#0066FF]/90 text-white px-8 py-6 text-lg rounded-xl h-auto"
+              className="ml-0 md:ml-4 bg-[#0066FF] hover:bg-[#0066FF]/90 text-white px-8 py-6 text-lg rounded-full h-auto shadow-sm"
             >
               {isLoading ? (
                 <div className="flex items-center">
@@ -232,9 +239,26 @@ export default function CheckerPage() {
             </Button>
           </div>
         </div>
-        <p className="text-center text-base text-[#0fae96] dark:text-[#5eead4] mt-4">
-          The scan typically takes 30-60 seconds depending on the size of your website
-        </p>
+        <div className="flex items-center justify-center space-x-2 mb-8">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="text-[#0fae96] dark:text-[#5eead4]"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <p className="text-center text-base font-medium text-[#0fae96] dark:text-[#5eead4]">
+            The scan typically takes 30-60 seconds depending on the size of your website
+          </p>
+        </div>
       </div>
 
       {/* Feature Cards */}
